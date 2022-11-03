@@ -1,0 +1,45 @@
+﻿1.	Quan li thue nha tro
+- Phong tro: 
++ Dien tich, noi that(dien may, go), gia ca, dia chi phong, 
++ Phong cho nam hay nu, Phong duoc nuoi cho meo hay khong
++ Loi di rieng, gio giac tu do ? 
++ Duoc o bao nhieu nguoi 
++ Yeu cau rieng? 
++ Cua chu cho thue nao? 
+
+- Nguoi cho thue: 
++ Thong tin co ban : nghe nghiep, ......
+
+- Nguoi thue: 
++ Thong tin co ban: nghe nghiep, tuoi, gioi tinh….
+
+- Nguoi moi gioi: 
++ Thong tin co ban: cmnd….
++ Thuoc cong ty moi gioi nao 
+
+- Cong ty moi gioi: 
++ Dia chi, ma so thue ….
+
+- Hop dong: 
++ tien dat coc
++ Phong
++ Ben cho thue
++ Ben thue 
++ Thoi han hop dong, 
++ Thong tin boi thuong : tuy theo tung loai phong mua do boi thuong khac nhau, 
+
+* - Khach bo hop dong thi se bi chu nha report, chu nha lam sai thi bi khach review 
+- Khach tra nha truoc hop dong: hoac la kiem nguoi khac thay vao, hoac la den hop dong 
+- Chu nha lay lai nha truoc thoi han thi den tien cho nguoi thue 
+- Nguoi thue lam hu hong do dac thi den tien cho chu nha 
+- Tinh tien dien nuoc , goi xe hang thang cho chu nha 
+- Tim kiem nha tro theo thong tin yeu cau: vi tri, gia ca…
+
+
+
+
+-	Tiến: Viết class Người, Người Cho Thuê, Người Thuê, Người Môi Giới,Làm phần đăng nhập, đăng ký cho class người (class cha của người thuê và người cho thuê). Người môi giới có thuộc tính là thuộc class công ty, Người môi giới với công ty chỉ có hàm xuất thông tin là đủ.
+-	Bách: Làm hàm save thông tin lúc đăng ký và tra thông tin lúc đăng nhập và đăng ký. Đăng ký thì dò xem đã có tên đăng nhập đó chưa, nếu chưa thì return true. Làm hàm save() cho cái lập hợp đồng luôn, rồi hàm tra thông tin hợp đồng bằng “Mã số hợp đồng”
+-	An: Viết class hợp đồng, có các thuộc tính phía trên, thêm thuộc tính mã số hợp đồng và hàm: Xuất thông tin, Hủy Hợp Đồng, Lập Hợp Đồng. Cái lập hợp đồng là cái contructor luôn á, cuối hàm thì gọi hàm save(), để lưu thông tin hợp đồng vào file.
+-	Hậu: T sẽ làm class Phòng Trọ, hàm: cập nhật tình trạng, thanh toan tiền nhà tiện điện nước, Thêm thuộc tính review và hàm review, sẽ được gọi bởi Người Thuê……..
+Mấy cái yêu cầu dấu sao dính vào phần của ai thì làm luôn nha..
