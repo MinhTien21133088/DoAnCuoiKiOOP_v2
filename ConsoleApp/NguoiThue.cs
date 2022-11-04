@@ -10,6 +10,10 @@ namespace DoAnCuoiKiOOP_v2
         private double tienNo;
         private PhongTro phongTro;
 
+        public NguoiThue(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep, string tenDangNhap, string matKhau) : base(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, tenDangNhap, matKhau)
+        {
+        }
+
         public double TienConNo()
         {
             return tienNo;

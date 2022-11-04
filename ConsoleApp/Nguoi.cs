@@ -7,15 +7,15 @@ namespace DoAnCuoiKiOOP_v2
 {
     public class Nguoi
     {
-        private string hoVaTen;
-        private string cccd;
-        private string sdt;
-        private bool gioiTinh; // true là nam, false là nữ
-        private DateTime ngaySinh;
-        private int tuoi;
-        private string ngheNghiep;
-        private string tenDangNhap;
-        private string matKhau;
+        protected string hoVaTen;
+        protected string cccd;
+        protected string sdt;
+        protected bool gioiTinh; // true là nam, false là nữ
+        protected DateTime ngaySinh;
+        protected int tuoi;
+        protected string ngheNghiep;
+        protected string tenDangNhap;
+        protected string matKhau;
 
         public Nguoi(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep, string tenDangNhap, string matKhau)
         {
