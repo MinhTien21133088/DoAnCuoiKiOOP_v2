@@ -7,5 +7,6 @@ namespace DoAnCuoiKiOOP_v2
 {
     public class CongTyMoiGioi
     {
+
     }
 }
