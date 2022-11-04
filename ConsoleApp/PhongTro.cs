@@ -14,7 +14,7 @@ namespace DoAnCuoiKiOOP_v2
         private int soPhong;
         private int giaPhong;
         private string[] ghiChu = {""};
-        private NguoiChu nguoiChu;
+        private NguoiChoThue nguoiChoThue;
         private NguoiThue nguoiThue;
         private bool tinhTrang; // true nếu có người
         private double giaDien; // Tien/kWh

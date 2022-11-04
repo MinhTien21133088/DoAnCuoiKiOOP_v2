@@ -7,7 +7,7 @@ namespace DoAnCuoiKiOOP_v2
 {
     public class CongTyMoiGioi
     {
-        private string ten;
+        public string ten { get; }
         private string diaChi;
         private string maSoThue;
 
@@ -18,11 +18,15 @@ namespace DoAnCuoiKiOOP_v2
             this.maSoThue = maSoThue;
         }
 
-        public void XuatThongTin()
+        public void XuatThongTin(int mode)
         {
-            Console.WriteLine("Công ty môi giới " + ten);
+            if (mode == 0)
+            {
+                Console.WriteLine("Công ty môi giới " + ten);
+            }
             Console.WriteLine("Địa chỉ: " + diaChi);
             Console.WriteLine("Mã số thuế: " + maSoThue);
         }
+
     }
 }

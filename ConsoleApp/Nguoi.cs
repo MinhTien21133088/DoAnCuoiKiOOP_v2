@@ -13,11 +13,12 @@ namespace DoAnCuoiKiOOP_v2
         protected bool gioiTinh; // true là nam, false là nữ
         protected DateTime ngaySinh;
         protected int tuoi;
+        protected string diaChi;
         protected string ngheNghiep;
         protected string tenDangNhap;
         protected string matKhau;
 
-        public Nguoi(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep, string tenDangNhap, string matKhau)
+        public Nguoi(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep, string diaChi, string tenDangNhap, string matKhau)
         {
             this.hoVaTen = hoVaTen;
             this.cccd = cccd;
@@ -25,12 +26,13 @@ namespace DoAnCuoiKiOOP_v2
             this.gioiTinh = gioiTinh;
             this.ngaySinh = ngaySinh;
             tuoi = DateTime.Now.Year - ngaySinh.Year;
+            this.diaChi = diaChi;
             this.ngheNghiep = ngheNghiep;
             this.tenDangNhap = tenDangNhap;
             this.matKhau = matKhau;
         }
 
-        public void XuatThongTin()
+        protected void XuatThongTin()
         {
             Console.WriteLine("Họ và tên:   {0}", hoVaTen);
             Console.WriteLine("CCCD:        {0}", cccd);
@@ -38,16 +40,19 @@ namespace DoAnCuoiKiOOP_v2
             Console.WriteLine("Giới tính:   {0}", gioiTinh ? "Nam" : "Nữ");
             Console.WriteLine("Ngày sinh:   {0}", ngaySinh.ToString("dd/MM/yyyy"));
             Console.WriteLine("Tuổi:        {0}", tuoi);
+            Console.WriteLine("Địa chỉ:     {0}", diaChi);
             Console.WriteLine("Nghề nghiệp: {0}", ngheNghiep);
         }
 
-        public void DangKy()
+        public Nguoi DangKy()
         {
             Console.WriteLine("--- Nhập thông tin cơ bản ---");
-            string hoTen = Inputter.GetString("Họ và tên: ", "Tên không được bỏ trống");
+            string hoVaTen = Inputter.GetString("Họ và tên: ", "Tên không được bỏ trống");
             string cccd = Inputter.GetString("Số CCCD: ", "CCCD không hợp lệ", "^[0-9]{9}$|^[0-9]{12}$");
+            string sdt = Inputter.GetString("Số điện thoại: ", "Số điện thoại không hợp lệ", "^0[0-9]{9}$");
+            int gioiTinh = Inputter.GetInteger("Giới tính ('1' - Nam|'0' - Nữ)", "Không hợp lệ!", 0, 1);
             DateTime ngaySinh;
-        NHAP_LAI_NGAY_SINH:
+            NHAP_LAI_NGAY_SINH:
             try
             {
                 ngaySinh = DateTime.ParseExact(
@@ -60,11 +65,11 @@ namespace DoAnCuoiKiOOP_v2
                 Console.WriteLine("Ngày tháng năm sinh không hợp lệ.");
                 goto NHAP_LAI_NGAY_SINH;
             }
-            string sdt = Inputter.GetString("Số điện thoại: ", "Số điện thoại không hợp lệ", "^0[0-9]{9}$");
             string ngheNghiep = Inputter.GetString("Nghề nghiệp: ", "Nghề nghiệp không được bỏ trống");
             string diaChi = Inputter.GetString("Địa chỉ: ", "Địa chỉ không được bỏ trống");
             string tenDangNhap = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
             string matKhau = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
+            return new Nguoi(hoVaTen, cccd, sdt, gioiTinh == 1 ? true : false, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau);
         }
     }
 }

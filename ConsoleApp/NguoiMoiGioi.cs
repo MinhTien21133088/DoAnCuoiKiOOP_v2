@@ -14,6 +14,13 @@ namespace DoAnCuoiKiOOP_v2
             this.congTyMoiGioi = congTyMoiGioi;
         }
 
-        public 
+        public void XuatThongTin()
+        {
+            Console.WriteLine("--- Thông tin người môi giới ---");
+            base.XuatThongTin();
+            Console.WriteLine("Đến từ công ty môi giới " + congTyMoiGioi.ten);
+            congTyMoiGioi.XuatThongTin(1);
+        }
+
     }
 }

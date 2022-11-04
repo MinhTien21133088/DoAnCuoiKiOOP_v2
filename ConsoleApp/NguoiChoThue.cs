@@ -7,7 +7,7 @@ namespace DoAnCuoiKiOOP_v2
 {
     public class NguoiChoThue : Nguoi
     {
-        public NguoiChoThue(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep, string tenDangNhap, string matKhau) : base(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, tenDangNhap, matKhau)
+        public NguoiChoThue(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep, string diaChi, string tenDangNhap, string matKhau) : base(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau)
         {
         }
 
@@ -22,5 +22,6 @@ namespace DoAnCuoiKiOOP_v2
             base.DangKy();
             
         }
+
     }
 }
