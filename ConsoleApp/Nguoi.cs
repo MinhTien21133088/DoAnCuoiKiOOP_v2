@@ -31,6 +31,7 @@ namespace DoAnCuoiKiOOP_v2
             this.tenDangNhap = tenDangNhap;
             this.matKhau = matKhau;
         }
+        public Nguoi(){}
 
         protected void XuatThongTin()
         {

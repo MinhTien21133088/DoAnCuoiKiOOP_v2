@@ -6,7 +6,80 @@ namespace DoAnCuoiKiOOP_v2
     {
         static void Main()
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.InputEncoding = System.Text.Encoding.UTF8;
 
+            int choice;
+
+            Menu Welcome = new("QUẢN LÝ PHÒNG TRỌ");
+            Welcome.AddNewOption("Đăng ký");
+            Welcome.AddNewOption("Đăng nhập");
+            Welcome.AddNewOption("Thoát");
+
+        TRO_LAI_MENU_CHINH:
+            // Welcome
+            while (true)
+            {
+                Welcome.PrintMenu();
+                choice = Welcome.GetChoice();
+                Console.Clear();
+                switch (choice)
+                {
+                    case 1:
+                        {
+                            Menu MenuDangKy = new("ĐĂNG KÝ");
+                            MenuDangKy.AddNewOption("Người chủ");
+                            MenuDangKy.AddNewOption("Người thuê");
+                            MenuDangKy.AddNewOption("Trở lại");
+                            // Đăng ký
+                            while (true)
+                            {
+                                MenuDangKy.PrintMenu();
+                                choice = MenuDangKy.GetChoice();
+                                Console.Clear();
+                                switch (choice)
+                                {
+                                    case 1:
+                                        {
+                                            NguoiChoThue nguoiChoThue = new NguoiChoThue();
+                                            Console.WriteLine("Người chủ");
+                                            //Console.ReadLine();
+                                            nguoiChoThue.DangKy();
+                                            Console.Clear();
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            NguoiThue nguoiThue = new NguoiThue();
+                                            //Console.ReadLine();
+                                            nguoiThue.DangKy();
+                                            Console.Clear();
+                                            break;
+                                        }
+                                    case 3:
+                                        {
+                                            Console.WriteLine("Bấm phím bất kỳ để trở lại");
+                                            Console.ReadLine();
+                                            Console.Clear();
+                                            goto TRO_LAI_MENU_CHINH;
+                                        }
+                                }
+                            }
+                            break;
+                        }
+                    case 2:
+                        {
+                            break;
+                        }
+                    case 3:
+                        {
+                            Console.WriteLine("Xin cảm ơn và hẹn gặp lại!");
+                            Console.ReadKey();
+                            Console.Clear();
+                            return;
+                        }
+                }
+            }
         }
     }
 }

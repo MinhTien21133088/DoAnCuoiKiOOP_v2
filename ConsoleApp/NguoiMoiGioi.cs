@@ -9,7 +9,7 @@ namespace DoAnCuoiKiOOP_v2
     {
         private CongTyMoiGioi congTyMoiGioi;
 
-        public NguoiMoiGioi(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep, string tenDangNhap, string matKhau, CongTyMoiGioi congTyMoiGioi) : base(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, tenDangNhap, matKhau)
+        public NguoiMoiGioi(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep,string diaChi, string tenDangNhap, string matKhau, CongTyMoiGioi congTyMoiGioi) : base(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep,diaChi, tenDangNhap, matKhau)
         {
             this.congTyMoiGioi = congTyMoiGioi;
         }

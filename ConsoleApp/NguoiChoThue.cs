@@ -11,6 +11,11 @@ namespace DoAnCuoiKiOOP_v2
         {
         }
 
+        public NguoiChoThue()
+        {
+
+        }
+
         public void XuatThongTin()
         {
             Console.WriteLine("--- Thông tin người cho thuê ---");
@@ -20,7 +25,7 @@ namespace DoAnCuoiKiOOP_v2
         public NguoiChoThue DangKy()
         {
             base.DangKy();
-            
+            return this;
         }
 
     }
