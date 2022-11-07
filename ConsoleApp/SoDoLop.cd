@@ -1,52 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="DoAnCuoiKiOOP_v2.PhongTro">
-    <Position X="0.75" Y="0.75" Width="1.5" />
+    <Position X="1.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAAAAAAMABAAQABAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <HashCode>AgAgAIAMABAAQABAQAAAUAAACIAAEAAQwACQAAABgAA=</HashCode>
       <FileName>PhongTro.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DoAnCuoiKiOOP_v2.Nguoi">
     <Position X="6" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AUAAAAAGAAAAAAABAAAAAAAAA4AAgAQAAAAgAgAAAAk=</HashCode>
       <FileName>Nguoi.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DoAnCuoiKiOOP_v2.NguoiThue">
-    <Position X="4.25" Y="2.5" Width="1.5" />
+    <Position X="4" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAIgAAEgEAAAAQAAAAAAAA=</HashCode>
       <FileName>NguoiThue.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DoAnCuoiKiOOP_v2.NguoiChu">
-    <Position X="6" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>NguoiChu.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="DoAnCuoiKiOOP_v2.NguoiMoiGioi">
-    <Position X="7.75" Y="2.5" Width="1.5" />
+    <Position X="8" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIBAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>NguoiMoiGioi.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DoAnCuoiKiOOP_v2.CongTyMoiGioi">
-    <Position X="9.5" Y="2.5" Width="1.5" />
+    <Position X="10" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAACAAEAAAAAAAAAIAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CongTyMoiGioi.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DoAnCuoiKiOOP_v2.HopDong">
-    <Position X="2.75" Y="0.75" Width="1.5" />
+    <Position X="3.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>HopDong.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoAnCuoiKiOOP_v2.NguoiChoThue">
+    <Position X="6" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NguoiChoThue.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

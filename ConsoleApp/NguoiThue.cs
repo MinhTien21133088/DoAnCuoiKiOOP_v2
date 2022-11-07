@@ -14,10 +14,9 @@ namespace DoAnCuoiKiOOP_v2
         {
         }
 
-        public NguoiThue()
-        {
+        public NguoiThue() { }
 
-        }
+        ~NguoiThue() { }
 
         public NguoiThue DangKy()
         {
@@ -36,7 +35,7 @@ namespace DoAnCuoiKiOOP_v2
             return;
         }
 
-        public void ghiNo(double soTienNo)
+        public void GhiNo(double soTienNo)
         {
             tienNo += soTienNo;
             return;
@@ -46,5 +45,6 @@ namespace DoAnCuoiKiOOP_v2
         {
             phongTro.ThanhToan();
         }
+
     }
 }

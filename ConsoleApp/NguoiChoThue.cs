@@ -11,10 +11,9 @@ namespace DoAnCuoiKiOOP_v2
         {
         }
 
-        public NguoiChoThue()
-        {
+        public NguoiChoThue() { }
 
-        }
+        ~NguoiChoThue() { }
 
         public void XuatThongTin()
         {

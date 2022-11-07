@@ -42,7 +42,7 @@ namespace DoAnCuoiKiOOP_v2
                                     case 1:
                                         {
                                             NguoiChoThue nguoiChoThue = new NguoiChoThue();
-                                            Console.WriteLine("Người chủ");
+                                            //Console.WriteLine("Người chủ");
                                             //Console.ReadLine();
                                             nguoiChoThue.DangKy();
                                             Console.Clear();

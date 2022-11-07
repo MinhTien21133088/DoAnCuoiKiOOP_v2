@@ -18,6 +18,8 @@ namespace DoAnCuoiKiOOP_v2
             this.maSoThue = maSoThue;
         }
 
+        ~CongTyMoiGioi() { }
+
         public void XuatThongTin(int mode)
         {
             if (mode == 0)

@@ -14,6 +14,8 @@ namespace DoAnCuoiKiOOP_v2
             this.congTyMoiGioi = congTyMoiGioi;
         }
 
+        ~NguoiMoiGioi() { }
+
         public void XuatThongTin()
         {
             Console.WriteLine("--- Thông tin người môi giới ---");

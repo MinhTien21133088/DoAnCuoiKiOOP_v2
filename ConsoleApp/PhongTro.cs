@@ -14,13 +14,13 @@ namespace DoAnCuoiKiOOP_v2
         private int soPhong;
         private int soNguoi;
         private double giaPhong;
-        private string[] ghiChu = {""};
+        private string[] ghiChu = { "" };
         private NguoiChoThue nguoiChoThue;
         private NguoiThue nguoiThue;
         private bool tinhTrang; // true nếu có người
         private double giaDien; // Tien/kWh
         private double giaNuoc; // Tien/m^3
-        private string[] review = {""};
+        private string[] review = { "" };
 
         public PhongTro(double dienTich, string[,] noiThat, string diaChi, int soPhong, int soNguoi, double giaPhong, string[] ghiChu, NguoiChoThue nguoiChoThue, NguoiThue nguoiThue, bool tinhTrang, double giaDien, double giaNuoc, string[] review)
         {
@@ -39,31 +39,33 @@ namespace DoAnCuoiKiOOP_v2
             this.review = review;
         }
 
+        ~PhongTro() { }
+
         public void XuatThongTin()
         {
-            Console.WriteLine("Thong tin phong tro");
-            Console.WriteLine("So phong: " + soPhong);
-            Console.WriteLine("Dien tich: " + dienTich);
-            Console.WriteLine("Dia chi: " + diaChi);
-            Console.WriteLine("Gia phong: " + giaPhong);
-            Console.WriteLine("Gia tien dien (d/kWh): " + giaDien);
-            Console.WriteLine("Gia tien nuoc (d/m^3): " + giaNuoc);
-            Console.WriteLine("Ghi chu: ");
-            for(int i =0;i <ghiChu.Length;i++)
+            Console.WriteLine("--- Thông tin phòng trọ ---");
+            Console.WriteLine("Số phòng:            " + soPhong);
+            Console.WriteLine("Diện tích:           " + dienTich);
+            Console.WriteLine("Địa chỉ:             " + diaChi);
+            Console.WriteLine("Giá phòng:           " + giaPhong);
+            Console.WriteLine("Tiền điện (VNĐ/kWh): " + giaDien);
+            Console.WriteLine("Tiền nước (VNĐ/m^3): " + giaNuoc);
+            Console.WriteLine("Ghi chú: ");
+            for (int i = 0; i < ghiChu.Length; i++)
                 Console.WriteLine(ghiChu[i]);
             Console.WriteLine("Noi that: ");
-            for(int i = 0; i < noiThat.Length;++i)
-                Console.WriteLine(noiThat[i,0] + ": " + noiThat[i,1]);
-            Console.WriteLine("Tinh trang: " + (tinhTrang ? "co nguoi" : "khong co nguoi"));
-            Console.WriteLine("So nguoi: " + soNguoi);
+            for (int i = 0; i < noiThat.Length; ++i)
+                Console.WriteLine(noiThat[i, 0] + ": " + noiThat[i, 1]);
+            Console.WriteLine("Tình trạng:          " + (tinhTrang ? "đã được thuê" : "chưa được thuê"));
+            Console.WriteLine("Số người ở:          " + soNguoi);
         }
 
-        public void CapNhatTinhTrang(bool tinhTrang,int soNguoi, string[] ghiChu)
+        public void CapNhatTinhTrang(bool tinhTrang, int soNguoi, string[] ghiChu)
         {
             this.tinhTrang = tinhTrang;
             this.soNguoi = soNguoi;
             this.ghiChu = ghiChu;
-            Console.WriteLine("Cap nhat thanh cong!");
+            Console.WriteLine("Cập nhật thành công!");
         }
 
         public void CapNhatGiaDienNuocPhong(double giaDien, double giaNuoc, double giaPhong)
@@ -73,7 +75,7 @@ namespace DoAnCuoiKiOOP_v2
             this.giaPhong = giaPhong;
         }
 
-        public void CapNhatNoiThat(string[,]noiThat )
+        public void CapNhatNoiThat(string[,] noiThat)
         {
             this.noiThat = noiThat;
         }
@@ -81,57 +83,58 @@ namespace DoAnCuoiKiOOP_v2
         public double TienCanThanhToan(double soDien, double soNuoc)
         {
             double result = soDien * giaDien + soNuoc * giaNuoc + giaPhong + nguoiThue.TienConNo();
-            Console.WriteLine("So tien can thanh toan la: " + result + " ( trong do tien no thang truoc la: " + nguoiThue.TienConNo() + " )");
+            Console.WriteLine("Số tiền cần thanh toán là: " + result + " (tiền nợ tháng trước: " + nguoiThue.TienConNo() + " VNĐ)");
             return result;
         }
 
-        public void ThanhToan() 
+        public void ThanhToan()
         {
             double soTienTT;
             double soDien, soNuoc;
-            Console.WriteLine("Nhap so dien da su dung: ");
-            soDien = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Nhap so nuoc da su dung: ");
-            soNuoc = Convert.ToDouble(Console.ReadLine());
-            double tienCanTT = TienCanThanhToan(soDien,soNuoc);
-            
-            ThanhToanLai:
-            Console.WriteLine("Nhap so tien muon thanh toan: ");
-            soTienTT= Convert.ToDouble(Console.ReadLine());
+            soDien = Inputter.GetDouble("Nhập số điện đã sử dụng: ");
+            Console.WriteLine("Nhập số nước đã sử dụng: ");
+            soNuoc = Inputter.GetDouble("Nhập số nước đã sử dụng: ");
+            double tienCanTT = TienCanThanhToan(soDien, soNuoc);
 
-            if(tienCanTT > soTienTT)
+        ThanhToanLai:
+            Console.WriteLine();
+            soTienTT = Inputter.GetDouble("Nhập số tiền muốn thanh toán: ");
+
+            if (tienCanTT > soTienTT)
             {
                 if (soTienTT > nguoiThue.TienConNo())
                 {
                     nguoiThue.ThanhToanNo();
-                    Console.WriteLine("Ban da thanh toan " + soTienTT + " va con no lai " + (tienCanTT - soTienTT));
-                    nguoiThue.ghiNo(tienCanTT - soTienTT);
+                    Console.WriteLine("Đã thanh toán:   " + soTienTT + " VNĐ");
+                    Console.WriteLine("Tiền nợ còn lại: " + (tienCanTT - soTienTT) + "VNĐ");
+                    nguoiThue.GhiNo(tienCanTT - soTienTT);
                 }
                 else
                 {
-                    Console.WriteLine("Ban vui long thanh toan het no thang truoc!");
+                    Console.WriteLine("Vui lòng thanh toán hết tiền nợ tháng trước!");
                     goto ThanhToanLai;
                 }
             }
             else
             {
-                Console.WriteLine("Ban da thanh toan thanh cong!");
+                Console.WriteLine("Thanh toán thành công!");
                 nguoiThue.ThanhToanNo();
                 if (soTienTT > tienCanTT)
-                    Console.WriteLine("So tien du sau khi thanh toan: " +(soTienTT-tienCanTT));
+                    Console.WriteLine("Tiền dư sau khi thanh toán: " + (soTienTT - tienCanTT) + "VNĐ");
             }
         }
 
         public void Review()
         {
-            Console.WriteLine("So phong: " + soPhong);
-            Console.WriteLine("Nhap review cua ban ve phong tro nay: ");
+            Console.WriteLine("Số phòng: " + soPhong);
+            Console.WriteLine("Review của khách hàng về phòng trọ: ");
             review[review.Length - 1] = Console.ReadLine();
         }
 
         public void Save()
         {
-             // Luu thong tin Phong Tro vao file PhongTro.txt hoac cham gi do
+            // Luu thong tin Phong Tro vao file PhongTro.txt hoac cham gi do
         }
+
     }
 }

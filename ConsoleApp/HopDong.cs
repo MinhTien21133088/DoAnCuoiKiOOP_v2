@@ -7,5 +7,7 @@ namespace DoAnCuoiKiOOP_v2
 {
     public class HopDong
     {
+
+        ~HopDong() { }
     }
 }

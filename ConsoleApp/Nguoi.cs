@@ -32,7 +32,10 @@ namespace DoAnCuoiKiOOP_v2
             this.tenDangNhap = tenDangNhap;
             this.matKhau = matKhau;
         }
-        public Nguoi(){}
+
+        public Nguoi() { }
+
+        ~Nguoi() { }
 
         protected void XuatThongTin()
         {
@@ -50,15 +53,15 @@ namespace DoAnCuoiKiOOP_v2
         {
             Console.WriteLine("--- Nhập thông tin cơ bản ---");
             string hoVaTen = Inputter.GetString("Họ và tên: ", "Tên không được bỏ trống");
-            string cccd = Inputter.GetString("Số CCCD: ", "CCCD không hợp lệ", "^[0-9]{9}$|^[0-9]{12}$");
-            string sdt = Inputter.GetString("Số điện thoại: ", "Số điện thoại không hợp lệ", "^0[0-9]{9}$");
-            int gioiTinh = Inputter.GetInteger("Giới tính ('1' - Nam|'0' - Nữ)", "Không hợp lệ!", 0, 1);
+            string cccd = Inputter.GetStringF("Số CCCD: ", "CCCD không hợp lệ", "^[0-9]{9}$|^[0-9]{12}$");
+            string sdt = Inputter.GetStringF("Số điện thoại: ", "Số điện thoại không hợp lệ", "^0[0-9]{9}$");
+            int gioiTinh = Inputter.GetInteger("Giới tính ('1' - Nam|'0' - Nữ): ", "Không hợp lệ!", 0, 1);
             DateTime ngaySinh;
             NHAP_LAI_NGAY_SINH:
             try
             {
                 ngaySinh = DateTime.ParseExact(
-                    Inputter.GetString(
+                    Inputter.GetStringF(
                         "Ngày tháng năm sinh (dd/MM/yyyy): ", "Ngày tháng năm sinh không hợp lệ",
                         "((0|1)[0-9]|2[0-9]|3[0-9])/(0[0-9]|1[0-2])/((19|20)[0-9][0-9])$"), "dd/MM/yyyy", null);
             }
@@ -90,5 +93,6 @@ namespace DoAnCuoiKiOOP_v2
             // Code của Bách
             return true;
         }
+
     }
 }

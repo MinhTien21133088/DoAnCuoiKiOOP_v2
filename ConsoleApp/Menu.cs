@@ -5,7 +5,7 @@ namespace DoAnCuoiKiOOP_v2
     public class Menu
     {
         private string title = "";
-        private string[] optionList = new string[100];
+        private List<string> optionList = new List<string>();
         private int size = 0;
 
         public Menu(string title)
@@ -13,9 +13,11 @@ namespace DoAnCuoiKiOOP_v2
             this.title = title;
         }
 
+        ~Menu() { }
+
         public void AddNewOption(string newOption)
         {
-            optionList[size] = newOption;
+            optionList.Add(newOption);
             size++;
         }
 
@@ -24,6 +26,7 @@ namespace DoAnCuoiKiOOP_v2
             //Console.Clear();
             Console.WriteLine("------------------------");
             Console.WriteLine(title);
+            Console.WriteLine("------------------------");
             for (int i = 0; i <= size - 1; i++)
             {
                 string str = string.Format("{0}. {1}", i + 1, optionList[i]);
@@ -33,23 +36,14 @@ namespace DoAnCuoiKiOOP_v2
 
         public int GetChoice()
         {
-            Console.Write("Vui lòng nhập lựa chọn: ");
-            while (true)
-            {
-                try
-                {
-                    int choice = Convert.ToInt32(Console.ReadLine());
-                    if (choice < 1 || choice > size)
-                    {
-                        throw new Exception();
-                    }
-                    return choice;
-                }
-                catch (Exception)
-                {
-                    Console.Write("Vui lòng nhập từ 1 - " + size + " nha: ");
-                }
-            }
+            int choice = Inputter.GetInteger("Vui lòng nhập lựa chọn: ", 1, size);
+            return choice;
+        }
+
+        public void Clear()
+        {
+            optionList.Clear();
+            size = 0;
         }
 
     }
