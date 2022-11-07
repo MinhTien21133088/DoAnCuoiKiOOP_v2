@@ -87,12 +87,19 @@ namespace DoAnCuoiKiOOP_v2
             return false;
         }
 
+        public virtual void HeThong()
+        {
+
+        }
+
         public bool TimKiem(string ten, string mK)
         {
 
             // Code của Bách
             return true;
         }
+
+
 
     }
 }

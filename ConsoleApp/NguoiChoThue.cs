@@ -31,5 +31,10 @@ namespace DoAnCuoiKiOOP_v2
         {
             return base.DangNhap();
         }
+
+        public override void HeThong()
+        {
+
+        }
     }
 }

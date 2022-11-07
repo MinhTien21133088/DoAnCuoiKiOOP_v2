@@ -49,6 +49,11 @@ namespace DoAnCuoiKiOOP_v2
 
         public void ThanhToanTro()
         {
+            if(phongTro == null)
+            {
+                Console.WriteLine("Bạn chưa đăng ký bất kỳ trọ nào");
+                return;
+            }
             phongTro.ThanhToan();
         }
 
@@ -72,7 +77,7 @@ namespace DoAnCuoiKiOOP_v2
             }    
         }
 
-        public void HeThong() // Nếu đăng nhập thành công sẽ chạy vào hàm hệ thống  
+        public override void HeThong() // Nếu đăng nhập thành công sẽ chạy vào hàm hệ thống  
         {
             Menu menu = new Menu("Người Thuê");
             menu.AddNewOption("Xuất thông tin cá nhân");
@@ -92,16 +97,22 @@ namespace DoAnCuoiKiOOP_v2
                     case 1:
                         {
                             XuatThongTin();
+                            Console.WriteLine("Nhấn phím bất kỳ để tiếp tục");
+                            Console.ReadKey();
                             break;
                         }
                     case 2:
                         {
                             ThanhToanTro();
+                            Console.WriteLine("Nhấn phím bất kỳ để tiếp tục");
+                            Console.ReadKey();
                             break;
                         }
                     case 3:
                         {
                             ThanhToanNo();
+                            Console.WriteLine("Nhấn phím bất kỳ để tiếp tục");
+                            Console.ReadKey();
                             break;
                         }
                     case 4:
