@@ -77,7 +77,7 @@ namespace DoAnCuoiKiOOP_v2
             return new Nguoi(hoVaTen, cccd, sdt, gioiTinh == 1 ? true : false, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau);
         }
 
-        public bool DangNhap()
+        public virtual bool DangNhap()
         {
             string ten = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
             string mK = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");

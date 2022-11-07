@@ -22,7 +22,6 @@ namespace DoAnCuoiKiOOP_v2
             {
                 Welcome.PrintMenu();
                 choice = Welcome.GetChoice();
-                Console.Clear();
                 switch (choice)
                 {
                     case 1:
@@ -36,31 +35,24 @@ namespace DoAnCuoiKiOOP_v2
                             {
                                 MenuDangKy.PrintMenu();
                                 choice = MenuDangKy.GetChoice();
-                                Console.Clear();
                                 switch (choice)
                                 {
                                     case 1:
                                         {
                                             NguoiChoThue nguoiChoThue = new NguoiChoThue();
-                                            //Console.WriteLine("Người chủ");
-                                            //Console.ReadLine();
                                             nguoiChoThue.DangKy();
-                                            Console.Clear();
                                             break;
                                         }
                                     case 2:
                                         {
                                             NguoiThue nguoiThue = new NguoiThue();
-                                            //Console.ReadLine();
                                             nguoiThue.DangKy();
-                                            Console.Clear();
                                             break;
                                         }
                                     case 3:
                                         {
                                             Console.WriteLine("Bấm phím bất kỳ để trở lại");
-                                            Console.ReadLine();
-                                            Console.Clear();
+                                            Console.ReadKey();
                                             goto TRO_LAI_MENU_CHINH;
                                         }
                                 }
@@ -75,7 +67,6 @@ namespace DoAnCuoiKiOOP_v2
                         {
                             Console.WriteLine("Xin cảm ơn và hẹn gặp lại!");
                             Console.ReadKey();
-                            Console.Clear();
                             return;
                         }
                 }

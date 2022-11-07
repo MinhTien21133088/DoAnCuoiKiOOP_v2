@@ -223,7 +223,7 @@ namespace DoAnCuoiKiOOP_v2
         }
 
         // method ép nhập String ko bỏ trống
-        public static string GetString(string inputMsg)
+        public static string GetStringF(string inputMsg)
         {
             Console.Write(inputMsg);
             while (true)

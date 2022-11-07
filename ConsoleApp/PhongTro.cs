@@ -91,20 +91,20 @@ namespace DoAnCuoiKiOOP_v2
         {
             double soTienTT;
             double soDien, soNuoc;
-            soDien = Inputter.GetDouble("Nhập số điện đã sử dụng: ");
+            soDien = Inputter.GetDouble("Nhập số điện đã sử dụng: ","Vui lòng nhập đúng định dạng");
             Console.WriteLine("Nhập số nước đã sử dụng: ");
-            soNuoc = Inputter.GetDouble("Nhập số nước đã sử dụng: ");
+            soNuoc = Inputter.GetDouble("Nhập số nước đã sử dụng: ", "Vui lòng nhập đúng định dạng");
             double tienCanTT = TienCanThanhToan(soDien, soNuoc);
 
         ThanhToanLai:
             Console.WriteLine();
-            soTienTT = Inputter.GetDouble("Nhập số tiền muốn thanh toán: ");
+            soTienTT = Inputter.GetDouble("Nhập số tiền muốn thanh toán: ", "Vui lòng nhập đúng định dạng");
 
             if (tienCanTT > soTienTT)
             {
                 if (soTienTT > nguoiThue.TienConNo())
                 {
-                    nguoiThue.ThanhToanNo();
+                    nguoiThue.XoaNo();
                     Console.WriteLine("Đã thanh toán:   " + soTienTT + " VNĐ");
                     Console.WriteLine("Tiền nợ còn lại: " + (tienCanTT - soTienTT) + "VNĐ");
                     nguoiThue.GhiNo(tienCanTT - soTienTT);
@@ -118,7 +118,7 @@ namespace DoAnCuoiKiOOP_v2
             else
             {
                 Console.WriteLine("Thanh toán thành công!");
-                nguoiThue.ThanhToanNo();
+                nguoiThue.XoaNo();
                 if (soTienTT > tienCanTT)
                     Console.WriteLine("Tiền dư sau khi thanh toán: " + (soTienTT - tienCanTT) + "VNĐ");
             }

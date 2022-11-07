@@ -27,5 +27,9 @@ namespace DoAnCuoiKiOOP_v2
             return this;
         }
 
+        public override bool DangNhap()
+        {
+            return base.DangNhap();
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace DoAnCuoiKiOOP_v2
 
         public void PrintMenu()
         {
-            //Console.Clear();
+            Console.Clear();
             Console.WriteLine("------------------------");
             Console.WriteLine(title);
             Console.WriteLine("------------------------");
