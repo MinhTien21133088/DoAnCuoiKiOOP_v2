@@ -9,5 +9,15 @@ namespace DoAnCuoiKiOOP_v2
     {
 
         ~HopDong() { }
+
+        public static bool Search(int maHD)
+        {
+            // Tìm kiếm thấy
+            //HopDong.XuatThongTin();
+            return true;
+            Console.WriteLine("Không tìm thấy hợp đồng");
+            // ngược lại
+            return false;
+        }
     }
 }

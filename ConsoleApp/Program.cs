@@ -21,6 +21,7 @@ namespace DoAnCuoiKiOOP_v2
             Welcome.AddNewOption("Đăng nhập");
             Welcome.AddNewOption("Thông tin người môi giới");
             Welcome.AddNewOption("Thông tin công ty môi giới");
+            Welcome.AddNewOption("Tra cứu hợp đồng");
             Welcome.AddNewOption("Thoát");
 
         TRO_LAI_MENU_CHINH:
@@ -123,6 +124,14 @@ namespace DoAnCuoiKiOOP_v2
                             break;
                         }
                     case 5:
+                        {
+                            int maHD = Inputter.GetInteger("Nhập mã số hợp đồng: ", "Vui lòng nhập đúng định dạng");
+                            HopDong.Search(maHD);
+                            Console.WriteLine("Bấm phím bất kỳ để tiếp tục");
+                            Console.ReadKey();
+                            break;
+                        }
+                    case 6:
                         {
                             Console.WriteLine("Xin cảm ơn và hẹn gặp lại!");
                             Console.ReadKey();

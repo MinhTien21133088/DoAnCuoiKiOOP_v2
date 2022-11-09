@@ -82,7 +82,7 @@ namespace DoAnCuoiKiOOP_v2
             Menu menu = new Menu("Người Thuê");
             menu.AddNewOption("Xuất thông tin cá nhân");
             menu.AddNewOption("Thanh toán trọ");
-            menu.AddNewOption("Thanh toán nợ");
+            menu.AddNewOption("Thanh toán nợ");           
             menu.AddNewOption("Thoát");
 
             int choice;

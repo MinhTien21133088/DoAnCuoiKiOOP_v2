@@ -53,7 +53,7 @@ namespace DoAnCuoiKiOOP_v2
             Console.WriteLine("Ghi chú: ");
             for (int i = 0; i < ghiChu.Length; i++)
                 Console.WriteLine(ghiChu[i]);
-            Console.WriteLine("Noi that: ");
+            Console.WriteLine("Nội thất trọ và giá trị: ");
             for (int i = 0; i < noiThat.Length; ++i)
                 Console.WriteLine(noiThat[i, 0] + ": " + noiThat[i, 1]);
             Console.WriteLine("Tình trạng:          " + (tinhTrang ? "đã được thuê" : "chưa được thuê"));
