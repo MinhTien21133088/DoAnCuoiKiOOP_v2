@@ -77,12 +77,20 @@ namespace DoAnCuoiKiOOP_v2
             }    
         }
 
+        public void LapHopDong()
+        {
+            //PhongTro dsPT[100];
+            //dsPT = PhongTro.DSPhongConTrong();
+            int choice = Inputter.GetInteger("Nhập phòng trọ bạn muốn thuê: ", "Vui lòng nhập đúng định dạng");
+        }
+
         public override void HeThong() // Nếu đăng nhập thành công sẽ chạy vào hàm hệ thống  
         {
             Menu menu = new Menu("Người Thuê");
             menu.AddNewOption("Xuất thông tin cá nhân");
             menu.AddNewOption("Thanh toán trọ");
-            menu.AddNewOption("Thanh toán nợ");           
+            menu.AddNewOption("Thanh toán nợ");
+            menu.AddNewOption("Lập hợp đồng thuê trọ");
             menu.AddNewOption("Thoát");
 
             int choice;
@@ -117,6 +125,7 @@ namespace DoAnCuoiKiOOP_v2
                         }
                     case 4:
                         {
+                            LapHopDong();
                             return;
                         }
                 }

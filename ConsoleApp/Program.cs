@@ -125,7 +125,7 @@ namespace DoAnCuoiKiOOP_v2
                         }
                     case 5:
                         {
-                            int maHD = Inputter.GetInteger("Nhập mã số hợp đồng: ", "Vui lòng nhập đúng định dạng");
+                            string maHD = Inputter.GetString("Nhập mã số hợp đồng: ", "Vui lòng nhập đúng định dạng");
                             HopDong.Search(maHD);
                             Console.WriteLine("Bấm phím bất kỳ để tiếp tục");
                             Console.ReadKey();

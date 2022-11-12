@@ -53,11 +53,23 @@ namespace DoAnCuoiKiOOP_v2
             Console.WriteLine("Ghi chú: ");
             for (int i = 0; i < ghiChu.Length; i++)
                 Console.WriteLine(ghiChu[i]);
-            Console.WriteLine("Nội thất trọ và giá trị: ");
-            for (int i = 0; i < noiThat.Length; ++i)
-                Console.WriteLine(noiThat[i, 0] + ": " + noiThat[i, 1]);
+            Console.WriteLine("Nội thất (đếm số ô có thể) | Giá tiền");
+
+            //Minh Tiến fixx bug
+            //for (int i = 0; i < noiThat.GetLength(0); i++)
+                //Console.WriteLine("{0,-(10)} | {1} ", noiThat[i, 0], noiThat[i,1]); 
             Console.WriteLine("Tình trạng:          " + (tinhTrang ? "đã được thuê" : "chưa được thuê"));
             Console.WriteLine("Số người ở:          " + soNguoi);
+        }
+
+        public double GiaPhong()
+        {
+            return giaPhong;
+        }
+
+        public string[] GhiChu()
+        {
+            return ghiChu;
         }
 
         public void CapNhatTinhTrang(bool tinhTrang, int soNguoi, string[] ghiChu)
@@ -66,6 +78,7 @@ namespace DoAnCuoiKiOOP_v2
             this.soNguoi = soNguoi;
             this.ghiChu = ghiChu;
             Console.WriteLine("Cập nhật thành công!");
+            //Cập nhật thông tin trong file
         }
 
         public void CapNhatGiaDienNuocPhong(double giaDien, double giaNuoc, double giaPhong)
@@ -73,11 +86,14 @@ namespace DoAnCuoiKiOOP_v2
             this.giaDien = giaDien;
             this.giaNuoc = giaNuoc;
             this.giaPhong = giaPhong;
+            //Cập nhật thông tin trong file
         }
 
         public void CapNhatNoiThat(string[,] noiThat)
         {
             this.noiThat = noiThat;
+
+            //Cập nhật thông tin trong file
         }
 
         public double TienCanThanhToan(double soDien, double soNuoc)
@@ -133,8 +149,15 @@ namespace DoAnCuoiKiOOP_v2
 
         public void Save()
         {
-            // Luu thong tin Phong Tro vao file PhongTro.txt hoac cham gi do
+            // Luu thong tin Phong Tro vao file PhongTro.csv
         }
 
+
+        public static PhongTro[] DSPhongConTrong()
+        {
+            PhongTro[] dsPT = new PhongTro[100];
+            // Tim trong file cac phong tro con trong roi luu vao mang nay
+            return dsPT;
+        }
     }
 }
