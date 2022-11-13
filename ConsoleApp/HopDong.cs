@@ -11,16 +11,14 @@ namespace DoAnCuoiKiOOP_v2
         private double tienCoc;
         private NguoiThue nguoiThue;
         private NguoiChoThue nguoiChoThue;
-        private int boiThuong;
         private string maSoHopDong = "";
         private PhongTro phongTro;
 
-        public HopDong(DateTime thoiHan, NguoiThue nguoiThue, NguoiChoThue nguoiChoThue,PhongTro phongTro, int boiThuong)
+        public HopDong(DateTime thoiHan, NguoiThue nguoiThue, NguoiChoThue nguoiChoThue,PhongTro phongTro)
         {
             this.thoiHan = thoiHan;
             this.nguoiThue = nguoiThue;
             this.nguoiChoThue = nguoiChoThue;
-            this.boiThuong = boiThuong;
             TaoMaHopDong();
             this.phongTro = phongTro;
             tienCoc = phongTro.GiaPhong() * 2;

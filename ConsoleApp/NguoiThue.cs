@@ -79,9 +79,31 @@ namespace DoAnCuoiKiOOP_v2
 
         public void LapHopDong()
         {
-            //PhongTro dsPT[100];
-            //dsPT = PhongTro.DSPhongConTrong();
-            int choice = Inputter.GetInteger("Nhập phòng trọ bạn muốn thuê: ", "Vui lòng nhập đúng định dạng");
+            PhongTro[] dsPT;
+            dsPT = PhongTro.DSPhongConTrong();
+            foreach(PhongTro pT in dsPT)
+            {
+                pT.XuatThongTin();
+            }
+            int choice;
+            while(true)
+            {
+                choice = Inputter.GetInteger("Nhập mã số phòng trọ bạn muốn thuê (Nhập 0 để thoát): ", "Vui lòng nhập đúng định dạng");
+                if(choice == 0)
+                    return;
+                foreach (PhongTro pT in dsPT)
+                {
+                    if (pT.SoPhong() == choice)
+                    { 
+                        phongTro = pT;
+                        break; 
+                    }
+                }
+                Console.WriteLine("Không có phòng trọ có mã số này!");              
+            }
+            Console.WriteLine("Hợp đồng của bạn có thời hạn 6 tháng kể từ ngày lập hợp đồng này");
+            Console.WriteLine("Tiền cọc trọ của bạn là: " + phongTro.GiaPhong()*2);
+            HopDong hd = new HopDong(DateTime.Today.AddMonths(6), this, phongTro.NguoiChoThue(), phongTro);
         }
 
         public override void HeThong() // Nếu đăng nhập thành công sẽ chạy vào hàm hệ thống  

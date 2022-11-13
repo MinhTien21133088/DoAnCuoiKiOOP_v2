@@ -67,9 +67,18 @@ namespace DoAnCuoiKiOOP_v2
             return giaPhong;
         }
 
+        public int SoPhong()
+        {
+            return soPhong;
+        }
         public string[] GhiChu()
         {
             return ghiChu;
+        }
+
+        public NguoiChoThue NguoiChoThue()
+        {
+            return nguoiChoThue;
         }
 
         public void CapNhatTinhTrang(bool tinhTrang, int soNguoi, string[] ghiChu)
