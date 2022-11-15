@@ -31,6 +31,7 @@ namespace DoAnCuoiKiOOP_v2
             {
                 Welcome.PrintMenu();
                 choice = Welcome.GetChoice();
+                Console.WriteLine();
                 switch (choice)
                 {
                     case 1:
@@ -44,6 +45,7 @@ namespace DoAnCuoiKiOOP_v2
                             {
                                 MenuDangKy.PrintMenu();
                                 choice = MenuDangKy.GetChoice();
+                                Console.WriteLine();
                                 switch (choice)
                                 {
                                     case 1:
@@ -66,7 +68,7 @@ namespace DoAnCuoiKiOOP_v2
                                         }
                                 }
                             }
-                            break;
+                            //break;
                         }
                     case 2:
                         {
@@ -79,6 +81,7 @@ namespace DoAnCuoiKiOOP_v2
                             {
                                 MenuDangNhap.PrintMenu();
                                 choice = MenuDangNhap.GetChoice();
+                                Console.WriteLine();
                                 switch (choice)
                                 {
                                     case 1:
@@ -89,7 +92,7 @@ namespace DoAnCuoiKiOOP_v2
                                             else
                                                 Console.WriteLine("Đăng nhập thất bại");
                                             break;
-                                            
+
                                         }
                                     case 2:
                                         {
@@ -108,7 +111,7 @@ namespace DoAnCuoiKiOOP_v2
                                         }
                                 }
                             }
-                            break;
+                            //break;
                         }
                     case 3:
                         {
@@ -136,10 +139,12 @@ namespace DoAnCuoiKiOOP_v2
                         {
                             Console.WriteLine("Xin cảm ơn và hẹn gặp lại!");
                             Console.ReadKey();
-                            return;
+                            break;
                         }
                 }
+                break;
             }
+
             var chuList = new List<NguoiChoThue>
             {
                 new NguoiChoThue()

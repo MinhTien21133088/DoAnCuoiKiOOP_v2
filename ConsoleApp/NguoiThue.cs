@@ -10,7 +10,7 @@ namespace DoAnCuoiKiOOP_v2
         private double tienNo;
         private PhongTro phongTro;
 
-        public NguoiThue(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep,string diaChi, string tenDangNhap, string matKhau) : base(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau)
+        public NguoiThue(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep, string diaChi, string tenDangNhap, string matKhau) : base(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau)
         {
         }
 
@@ -49,7 +49,7 @@ namespace DoAnCuoiKiOOP_v2
 
         public void ThanhToanTro()
         {
-            if(phongTro == null)
+            if (phongTro == null)
             {
                 Console.WriteLine("Bạn chưa đăng ký bất kỳ trọ nào");
                 return;
@@ -61,7 +61,7 @@ namespace DoAnCuoiKiOOP_v2
         {
             Console.WriteLine("Nợ hiện tại của bạn: " + tienNo);
             int temp = Inputter.GetInteger("Nhập số tiền muốn thanh toán: ", "Vui lòng nhập đúng định dạng");
-            if(temp >= tienNo)
+            if (temp >= tienNo)
             {
                 Console.WriteLine("Thanh toán nợ thành công!");
                 Console.WriteLine("Số tiền dư ra: " + (temp - tienNo));
@@ -74,35 +74,36 @@ namespace DoAnCuoiKiOOP_v2
                 Console.WriteLine("Thanh toán nợ thành công!");
                 Console.WriteLine("Số tiền nợ còn lại: " + tienNo);
                 return;
-            }    
+            }
         }
 
         public void LapHopDong()
         {
             PhongTro[] dsPT;
             dsPT = PhongTro.DSPhongConTrong();
-            foreach(PhongTro pT in dsPT)
+            foreach (PhongTro pT in dsPT)
             {
                 pT.XuatThongTin();
             }
             int choice;
-            while(true)
+            while (true)
             {
                 choice = Inputter.GetInteger("Nhập mã số phòng trọ bạn muốn thuê (Nhập 0 để thoát): ", "Vui lòng nhập đúng định dạng");
-                if(choice == 0)
+                if (choice == 0)
                     return;
                 foreach (PhongTro pT in dsPT)
                 {
                     if (pT.SoPhong() == choice)
-                    { 
+                    {
                         phongTro = pT;
-                        break; 
+                        break;
                     }
                 }
-                Console.WriteLine("Không có phòng trọ có mã số này!");              
+                Console.WriteLine("Không có phòng trọ có mã số này!");
+                break;
             }
             Console.WriteLine("Hợp đồng của bạn có thời hạn 6 tháng kể từ ngày lập hợp đồng này");
-            Console.WriteLine("Tiền cọc trọ của bạn là: " + phongTro.GiaPhong()*2);
+            Console.WriteLine("Tiền cọc trọ của bạn là: " + phongTro.GiaPhong() * 2);
             HopDong hd = new HopDong(DateTime.Today.AddMonths(6), this, phongTro.NguoiChoThue(), phongTro);
         }
 
@@ -117,12 +118,12 @@ namespace DoAnCuoiKiOOP_v2
 
             int choice;
 
-            while(true)
+            while (true)
             {
                 menu.PrintMenu();
                 choice = menu.GetChoice();
-                
-                switch (choice) 
+
+                switch (choice)
                 {
                     case 1:
                         {

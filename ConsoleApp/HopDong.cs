@@ -14,7 +14,7 @@ namespace DoAnCuoiKiOOP_v2
         private string maSoHopDong = "";
         private PhongTro phongTro;
 
-        public HopDong(DateTime thoiHan, NguoiThue nguoiThue, NguoiChoThue nguoiChoThue,PhongTro phongTro)
+        public HopDong(DateTime thoiHan, NguoiThue nguoiThue, NguoiChoThue nguoiChoThue, PhongTro phongTro)
         {
             this.thoiHan = thoiHan;
             this.nguoiThue = nguoiThue;
@@ -25,7 +25,7 @@ namespace DoAnCuoiKiOOP_v2
             Save();
         }
 
-       
+        ~HopDong() { }
 
         public void XuatThongTin()
         {
@@ -41,6 +41,7 @@ namespace DoAnCuoiKiOOP_v2
             // ngược lại
             return false;
         }
+
         public void TaoMaHopDong()
         {
             Random random = new Random();
