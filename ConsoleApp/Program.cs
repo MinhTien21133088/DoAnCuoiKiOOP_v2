@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FileGeneric;
+using System;
 
 namespace DoAnCuoiKiOOP_v2
 {
@@ -139,6 +140,49 @@ namespace DoAnCuoiKiOOP_v2
                         }
                 }
             }
+            var chuList = new List<NguoiChoThue>
+            {
+                new NguoiChoThue()
+            };
+            DocGhi<NguoiChoThue>.Write(chuList, "nguoichothue.csv");
+            var dsNguoiChu = DocGhi<NguoiChoThue>.Read("nguoichothue.csv");
+            foreach (var chu in dsNguoiChu)
+            {
+                chu.XuatThongTin();
+            }
+
+            var thueList = new List<NguoiThue>
+            {
+                new NguoiThue()
+            };
+            DocGhi<NguoiThue>.Write(thueList, "nguoithue.csv");
+            var dsNguoiThue = DocGhi<NguoiThue>.Read("nguoithue.csv");
+            foreach (var thue in dsNguoiThue)
+            {
+                thue.DangNhap();
+            }
+
+            //var mogioiList = new List<NguoiMoiGioi>
+            //{
+            //    new NguoiMoiGioi()
+            //};
+            //DocGhi<NguoiMoiGioi>.Write(moigioiList, "nguoithue.csv");
+            //var dsNguoiMoiGioi = DocGhi<NguoiMoiGioi>.Read("nguoithue.csv");
+            //foreach (var moigioi in dsNguoiThue)
+            //{
+            //    moigioi.XuatThongTin();
+            //}
+
+            //var phongtroList = new List<DayPhongTro>
+            //{
+            //    new DayPhongTro()
+            //};
+            //DocGhi<DayPhongTro>.Write(phongtroList, "phongtro.csv");
+            //var dsphongtro = DocGhi<DayPhongTro>.Read("phongtro.csv");
+            //foreach (var phongtro in dsphongtro)
+            //{
+            //    phongtro.xuat();
+            //}
         }
     }
 }
