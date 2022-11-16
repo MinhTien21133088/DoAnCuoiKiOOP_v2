@@ -17,6 +17,10 @@ namespace DoAnCuoiKiOOP_v2
             NguoiMoiGioi nguoiMG = new NguoiMoiGioi("Nguyễn Minh Bảo Bách", "2111039", "0923023332", true, new DateTime(2003, 09, 19), "Người môi giới", "Thủ Đức", "100001", "100001", CTMG);
             //////////////
 
+            // Code Bách
+            // Đọc file ghi vào list
+
+
             int choice;
 
             Menu Welcome = new("QUẢN LÝ PHÒNG TRỌ");
@@ -151,44 +155,9 @@ namespace DoAnCuoiKiOOP_v2
                 break;
             }
 
-            /*var chuList = new List<NguoiChoThue>
-            {
-                new NguoiChoThue()
-            };
-            DocGhi<NguoiChoThue>.Write(chuList, "nguoichothue.csv");
-            var dsNguoiChu = DocGhi<NguoiChoThue>.Read("nguoichothue.csv");
-            foreach (var chu in dsNguoiChu)
-            {
-                chu.XuatThongTin();
-            }
+            // Code Bách
+            // Ghi file ghi vào list
 
-            var thueList = new List<NguoiThue>
-            {
-                new NguoiThue()
-            };
-            DocGhi<NguoiThue>.Write(thueList, "nguoithue.csv");
-            var dsNguoiThue = DocGhi<NguoiThue>.Read("nguoithue.csv");
-            foreach (var thue in dsNguoiThue)
-            {
-                thue.DangNhap();
-            }*/
-
-            //var mogioiList = new List<NguoiMoiGioi>
-            //{
-            //    new NguoiMoiGioi()
-            //};
-            //DocGhi<NguoiMoiGioi>.Write(moigioiList, "nguoithue.csv");
-            //var dsNguoiMoiGioi = DocGhi<NguoiMoiGioi>.Read("nguoithue.csv");
-            //foreach (var moigioi in dsNguoiThue)
-            //{
-            //    moigioi.XuatThongTin();
-            //}
-
-            //var phongtroList = new List<DayPhongTro>
-            //{
-            //    new DayPhongTro()
-            //};
-            
         }
     }
 }
