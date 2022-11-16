@@ -17,26 +17,31 @@ namespace DoAnCuoiKiOOP_v2
         }
 
         public NguoiThue() { }
-
+        
         ~NguoiThue() { }
 
 
         public NguoiThue DangKy()
         {
             base.DangKy();
-            NguoiThue temp = this;
-            thueList.Add(temp);
+            thueList.Add(this);
+            Console.WriteLine(thueList[0].hoVaTen);
+            Console.WriteLine(thueList.Count);
+            Console.ReadKey();
             return this;
         }
 
-        public override bool DangNhap()
+        public static NguoiThue DangNhap()
         {
             string ten = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
             string mK = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
-            if (TimKiem(ten,mK))
-                return true;
+            foreach (NguoiThue nguoi in thueList)
+            {
+                if (ten == nguoi.tenDangNhap && mK == nguoi.matKhau)
+                    return nguoi;
+            }
             Console.WriteLine("Tên đăng nhập hoặc mật khẩu không hợp lệ");
-            return false;
+            return null;
         }
 
         public double TienConNo()
@@ -116,15 +121,7 @@ namespace DoAnCuoiKiOOP_v2
             HopDong hd = new HopDong(DateTime.Today.AddMonths(6), this, phongTro.NguoiChoThue(), phongTro);
         }
 
-        public static bool TimKiem(string tenDN, string mk)
-        {
-            foreach (NguoiThue nguoi in thueList)
-            {
-                if (tenDN == nguoi.tenDangNhap && mk == nguoi.matKhau)
-                    return true;
-            }
-            return false;
-        }
+
 
         public override void HeThong() // Nếu đăng nhập thành công sẽ chạy vào hàm hệ thống  
         {

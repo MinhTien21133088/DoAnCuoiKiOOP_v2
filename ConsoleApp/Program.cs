@@ -33,7 +33,7 @@ namespace DoAnCuoiKiOOP_v2
             {
                 Welcome.PrintMenu();
                 choice = Welcome.GetChoice();
-                Console.WriteLine();
+
                 switch (choice)
                 {
                     case 1:
@@ -88,8 +88,8 @@ namespace DoAnCuoiKiOOP_v2
                                 {
                                     case 1:
                                         {
-                                            NguoiChoThue nguoiChoThue = new NguoiChoThue();
-                                            if (nguoiChoThue.DangNhap())
+                                            NguoiChoThue nguoiChoThue = NguoiChoThue.DangNhap();
+                                            if (nguoiChoThue != null)
                                                 nguoiChoThue.HeThong();
                                             else
                                                 Console.WriteLine("Đăng nhập thất bại");
@@ -98,8 +98,8 @@ namespace DoAnCuoiKiOOP_v2
                                         }
                                     case 2:
                                         {
-                                            NguoiThue nguoiThue = new NguoiThue();
-                                            if (nguoiThue.DangNhap())
+                                            NguoiThue nguoiThue = NguoiThue.DangNhap();
+                                            if (nguoiThue != null)
                                                 nguoiThue.HeThong();
                                             else
                                                 Console.WriteLine("Đăng nhập thất bại");
@@ -113,6 +113,7 @@ namespace DoAnCuoiKiOOP_v2
                                         }
                                 }
                             }
+                            //goto TRO_LAI_MENU_CHINH;
                             //break;
                         }
                     case 3:
@@ -120,6 +121,7 @@ namespace DoAnCuoiKiOOP_v2
                             nguoiMG.XuatThongTin();
                             Console.WriteLine("Bấm phím bất kỳ để tiếp tục");
                             Console.ReadKey();
+                            goto TRO_LAI_MENU_CHINH;
                             break;
                         }
                     case 4:
@@ -127,6 +129,7 @@ namespace DoAnCuoiKiOOP_v2
                             CTMG.XuatThongTin(0);
                             Console.WriteLine("Bấm phím bất kỳ để tiếp tục");
                             Console.ReadKey();
+                            goto TRO_LAI_MENU_CHINH;
                             break;
                         }
                     case 5:
@@ -135,6 +138,7 @@ namespace DoAnCuoiKiOOP_v2
                             HopDong.Search(maHD);
                             Console.WriteLine("Bấm phím bất kỳ để tiếp tục");
                             Console.ReadKey();
+                            goto TRO_LAI_MENU_CHINH;
                             break;
                         }
                     case 6:

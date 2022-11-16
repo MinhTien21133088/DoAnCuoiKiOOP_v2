@@ -34,14 +34,17 @@ namespace DoAnCuoiKiOOP_v2
             return this;
         }
 
-        public override bool DangNhap()
+        public static NguoiChoThue DangNhap()
         {
             string ten = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
             string mK = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
-            if (TimKiem(ten, mK))
-                return true;
+            foreach (NguoiChoThue nguoi in chuList)
+            {
+                if (ten == nguoi.tenDangNhap && mK == nguoi.matKhau)
+                    return nguoi;
+            }
             Console.WriteLine("Tên đăng nhập hoặc mật khẩu không hợp lệ");
-            return false;
+            return null;
         }
 
         public void ThemPhongTro()
@@ -127,15 +130,7 @@ namespace DoAnCuoiKiOOP_v2
             }
         }
 
-        public static bool TimKiem(string tenDN, string mk)
-        {
-            foreach (NguoiChoThue nguoi in chuList)
-            {
-                if (tenDN == nguoi.tenDangNhap && mk == nguoi.matKhau)
-                    return true;
-            }
-            return false;
-        }
+        
         /*public void Save()
         {
             DocGhi<NguoiChoThue>.Write(chuList, "nguoichothue.csv");

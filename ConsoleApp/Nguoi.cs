@@ -77,10 +77,7 @@ namespace DoAnCuoiKiOOP_v2
             return new Nguoi(hoVaTen, cccd, sdt, gioiTinh == 1 ? true : false, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau);
         }
 
-        public virtual bool DangNhap()
-        {
-            return true;
-        }
+      
 
         public virtual void HeThong()
         {
