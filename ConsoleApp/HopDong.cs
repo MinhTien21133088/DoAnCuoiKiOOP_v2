@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FileGeneric;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace DoAnCuoiKiOOP_v2
         private NguoiChoThue nguoiChoThue;
         private string maSoHopDong = "";
         private PhongTro phongTro;
+        private List<HopDong> hopdongList = new List<HopDong>();
 
         public HopDong(DateTime thoiHan, NguoiThue nguoiThue, NguoiChoThue nguoiChoThue, PhongTro phongTro)
         {
@@ -22,7 +24,7 @@ namespace DoAnCuoiKiOOP_v2
             TaoMaHopDong();
             this.phongTro = phongTro;
             tienCoc = phongTro.GiaPhong() * 2;
-            Save();
+            //Save();
         }
 
         ~HopDong() { }
@@ -36,6 +38,7 @@ namespace DoAnCuoiKiOOP_v2
         {
             // Tìm kiếm thấy
             //XuatThongTin();
+
             return true;
             Console.WriteLine("Không tìm thấy hợp đồng");
             // ngược lại
@@ -104,9 +107,14 @@ namespace DoAnCuoiKiOOP_v2
 
         }
 
-        public void Save()
+        /*public void Save()
         {
-            //Code Bách
-        }
+            DocGhi<HopDong>.Write(hopdongList, "hopdong.csv");
+            var dsHopDong = DocGhi<HopDong>.Read("dong.csv");
+            foreach (var hopdong in dsHopDong)
+            {
+                hopdong.XuatThongTin();
+            }
+        }*/
     }
 }

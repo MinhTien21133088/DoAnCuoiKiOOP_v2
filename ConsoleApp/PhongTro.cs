@@ -21,6 +21,7 @@ namespace DoAnCuoiKiOOP_v2
         private double giaDien; // Tien/kWh
         private double giaNuoc; // Tien/m^3
         private string[] review = { "" };
+        private List<PhongTro> phongtroList = new List<PhongTro>();
 
         public PhongTro(double dienTich, string[,] noiThat, string diaChi, int soPhong, int soNguoi, double giaPhong, string[] ghiChu, NguoiChoThue nguoiChoThue, NguoiThue nguoiThue, bool tinhTrang, double giaDien, double giaNuoc, string[] review)
         {

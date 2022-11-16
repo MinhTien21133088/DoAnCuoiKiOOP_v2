@@ -5,10 +5,12 @@ using System.Text;
 
 namespace DoAnCuoiKiOOP_v2
 {
+    
     public class NguoiThue : Nguoi
     {
         private double tienNo;
         private PhongTro phongTro;
+        static List<NguoiThue> thueList = new List<NguoiThue>();
 
         public NguoiThue(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep, string diaChi, string tenDangNhap, string matKhau) : base(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau)
         {
@@ -22,12 +24,19 @@ namespace DoAnCuoiKiOOP_v2
         public NguoiThue DangKy()
         {
             base.DangKy();
+            NguoiThue temp = this;
+            thueList.Add(temp);
             return this;
         }
 
         public override bool DangNhap()
         {
-            return base.DangNhap();
+            string ten = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
+            string mK = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
+            if (TimKiem(ten,mK))
+                return true;
+            Console.WriteLine("Tên đăng nhập hoặc mật khẩu không hợp lệ");
+            return false;
         }
 
         public double TienConNo()
@@ -105,6 +114,16 @@ namespace DoAnCuoiKiOOP_v2
             Console.WriteLine("Hợp đồng của bạn có thời hạn 6 tháng kể từ ngày lập hợp đồng này");
             Console.WriteLine("Tiền cọc trọ của bạn là: " + phongTro.GiaPhong() * 2);
             HopDong hd = new HopDong(DateTime.Today.AddMonths(6), this, phongTro.NguoiChoThue(), phongTro);
+        }
+
+        public static bool TimKiem(string tenDN, string mk)
+        {
+            foreach (NguoiThue nguoi in thueList)
+            {
+                if (tenDN == nguoi.tenDangNhap && mk == nguoi.matKhau)
+                    return true;
+            }
+            return false;
         }
 
         public override void HeThong() // Nếu đăng nhập thành công sẽ chạy vào hàm hệ thống  

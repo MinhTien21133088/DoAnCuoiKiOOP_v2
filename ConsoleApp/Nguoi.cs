@@ -79,12 +79,7 @@ namespace DoAnCuoiKiOOP_v2
 
         public virtual bool DangNhap()
         {
-            string ten = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
-            string mK = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
-            if (TimKiem(ten, mK))
-                return true;
-            Console.WriteLine("Tên đăng nhập hoặc mật khẩu không hợp lệ");
-            return false;
+            return true;
         }
 
         public virtual void HeThong()
@@ -92,12 +87,11 @@ namespace DoAnCuoiKiOOP_v2
 
         }
 
-        public bool TimKiem(string ten, string mK)
-        {
-
-            // Code của Bách
-            return true;
-        }
+        //public bool TimKiem(string ten, string mK)
+        //{
+            
+        //    return true;
+        //}
 
 
 

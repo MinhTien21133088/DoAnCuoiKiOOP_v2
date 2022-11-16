@@ -5,6 +5,8 @@ namespace DoAnCuoiKiOOP_v2
 {
     class Program
     {
+        
+
         static void Main()
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
@@ -145,7 +147,7 @@ namespace DoAnCuoiKiOOP_v2
                 break;
             }
 
-            var chuList = new List<NguoiChoThue>
+            /*var chuList = new List<NguoiChoThue>
             {
                 new NguoiChoThue()
             };
@@ -165,7 +167,7 @@ namespace DoAnCuoiKiOOP_v2
             foreach (var thue in dsNguoiThue)
             {
                 thue.DangNhap();
-            }
+            }*/
 
             //var mogioiList = new List<NguoiMoiGioi>
             //{
@@ -182,12 +184,7 @@ namespace DoAnCuoiKiOOP_v2
             //{
             //    new DayPhongTro()
             //};
-            //DocGhi<DayPhongTro>.Write(phongtroList, "phongtro.csv");
-            //var dsphongtro = DocGhi<DayPhongTro>.Read("phongtro.csv");
-            //foreach (var phongtro in dsphongtro)
-            //{
-            //    phongtro.xuat();
-            //}
+            
         }
     }
 }

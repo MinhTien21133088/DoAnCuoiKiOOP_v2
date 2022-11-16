@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FileGeneric;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace DoAnCuoiKiOOP_v2
     {
         private PhongTro[] dsPhongTro = new PhongTro[100];
         private int slTro = 0;
+        static List<NguoiChoThue> chuList = new List<NguoiChoThue>();
 
         public NguoiChoThue(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep, string diaChi, string tenDangNhap, string matKhau) : base(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau)
         {
@@ -27,12 +29,19 @@ namespace DoAnCuoiKiOOP_v2
         public NguoiChoThue DangKy()
         {
             base.DangKy();
+            NguoiChoThue temp = this;
+            chuList.Add(temp);
             return this;
         }
 
         public override bool DangNhap()
         {
-            return base.DangNhap();
+            string ten = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
+            string mK = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
+            if (TimKiem(ten, mK))
+                return true;
+            Console.WriteLine("Tên đăng nhập hoặc mật khẩu không hợp lệ");
+            return false;
         }
 
         public void ThemPhongTro()
@@ -117,5 +126,24 @@ namespace DoAnCuoiKiOOP_v2
                 }
             }
         }
+
+        public static bool TimKiem(string tenDN, string mk)
+        {
+            foreach (NguoiChoThue nguoi in chuList)
+            {
+                if (tenDN == nguoi.tenDangNhap && mk == nguoi.matKhau)
+                    return true;
+            }
+            return false;
+        }
+        /*public void Save()
+        {
+            DocGhi<NguoiChoThue>.Write(chuList, "nguoichothue.csv");
+            var dsNguoiChu = DocGhi<NguoiChoThue>.Read("nguoichothue.csv");
+            foreach (var chu in dsNguoiChu)
+            {
+                chu.XuatThongTin();
+            }
+        }*/
     }
 }

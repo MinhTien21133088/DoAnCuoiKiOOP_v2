@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 
 namespace FileGeneric
 {
-    public class DocGhi<F> where F : class, new()
+    public class DocGhi<F>
     {
         public static void Write(List<F> inputList, string fileName)
         {
@@ -20,7 +20,7 @@ namespace FileGeneric
             csvContext.Write(inputList, fileName, csvFileConfig);
         }
 
-        public static List<F> Read(string fileName)
+        /*public static List<F> Read(string fileName)
         {
             CsvFileDescription inputFileDescription = new CsvFileDescription
             {
@@ -29,9 +29,9 @@ namespace FileGeneric
             };
 
             CsvContext ctx = new CsvContext();
-            var outputList = ctx.Read<F>(fileName, inputFileDescription);
+            //var outputList = ctx.Read<F>(fileName, inputFileDescription);
 
-            return outputList.ToList<F>();
-        }
+            //return outputList.ToList<F>();
+        }*/
     }
 }
