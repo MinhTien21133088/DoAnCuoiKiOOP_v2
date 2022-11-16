@@ -37,7 +37,7 @@ namespace DoAnCuoiKiOOP_v2
                     case 1:
                         {
                             Menu MenuDangKy = new("ĐĂNG KÝ");
-                            MenuDangKy.AddNewOption("Người chủ");
+                            MenuDangKy.AddNewOption("Người cho thuê");
                             MenuDangKy.AddNewOption("Người thuê");
                             MenuDangKy.AddNewOption("Trở lại");
                             // Đăng ký
@@ -73,7 +73,7 @@ namespace DoAnCuoiKiOOP_v2
                     case 2:
                         {
                             Menu MenuDangNhap = new("ĐĂNG NHẬP");
-                            MenuDangNhap.AddNewOption("Người chủ");
+                            MenuDangNhap.AddNewOption("Người cho thuê");
                             MenuDangNhap.AddNewOption("Người thuê");
                             MenuDangNhap.AddNewOption("Trở lại");
                             // Đăng nhập
