@@ -14,7 +14,7 @@ namespace DoAnCuoiKiOOP_v2
         private NguoiChoThue nguoiChoThue;
         private string maSoHopDong = "";
         private PhongTro phongTro;
-        private List<HopDong> hopdongList = new List<HopDong>();
+        private static List<HopDong> hopdongList = new List<HopDong>();
 
         public HopDong(DateTime thoiHan, NguoiThue nguoiThue, NguoiChoThue nguoiChoThue, PhongTro phongTro)
         {
@@ -36,12 +36,15 @@ namespace DoAnCuoiKiOOP_v2
 
         public static bool Search(string maHD)
         {
-            // Tìm kiếm thấy
-            //XuatThongTin();
-
-            return true;
+            foreach(HopDong hd in hopdongList)
+            {
+                if(maHD == hd.maSoHopDong)
+                {
+                    hd.XuatThongTin();
+                    return true;
+                }
+            }
             Console.WriteLine("Không tìm thấy hợp đồng");
-            // ngược lại
             return false;
         }
 
