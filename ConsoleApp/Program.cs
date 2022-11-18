@@ -55,15 +55,13 @@ namespace DoAnCuoiKiOOP_v2
                                 switch (choice)
                                 {
                                     case 1:
-                                        {
-                                            NguoiChoThue nguoiChoThue = new NguoiChoThue();
-                                            nguoiChoThue.DangKy();
+                                        {                                           
+                                            NguoiChoThue.DangKy();
                                             break;
                                         }
                                     case 2:
                                         {
-                                            NguoiThue nguoiThue = new NguoiThue();
-                                            nguoiThue.DangKy();
+                                            NguoiThue.DangKy();
                                             break;
                                         }
                                     case 3:

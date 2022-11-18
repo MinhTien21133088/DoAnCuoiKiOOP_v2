@@ -21,7 +21,13 @@ namespace DoAnCuoiKiOOP_v2
         private double giaDien; // Tien/kWh
         private double giaNuoc; // Tien/m^3
         private string[] review = { "" };
-        private List<PhongTro> phongtroList = new List<PhongTro>();
+        private static List<PhongTro> phongtroList = new List<PhongTro>();
+
+        public static List<PhongTro> PhongTroList
+        {
+            get { return phongtroList; }
+            set { phongtroList = value; }
+        }
 
         public PhongTro(double dienTich, string[,] noiThat, string diaChi, int soPhong, int soNguoi, double giaPhong, string[] ghiChu, NguoiChoThue nguoiChoThue, NguoiThue nguoiThue, bool tinhTrang, double giaDien, double giaNuoc, string[] review)
         {
@@ -157,16 +163,16 @@ namespace DoAnCuoiKiOOP_v2
             review[review.Length - 1] = Console.ReadLine();
         }
 
-        public void Save()
-        {
-            // Luu thong tin Phong Tro vao file PhongTro.csv
-        }
-
 
         public static PhongTro[] DSPhongConTrong()
         {
             PhongTro[] dsPT = new PhongTro[100];
-            // Tim trong file cac phong tro con trong roi luu vao mang nay
+            int dem = 0;
+            foreach(PhongTro pt in PhongTroList)
+            {
+                if (pt.tinhTrang == false)
+                    dsPT[dem++] = pt;
+            }
             return dsPT;
         }
     }

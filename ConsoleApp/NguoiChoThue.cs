@@ -26,13 +26,13 @@ namespace DoAnCuoiKiOOP_v2
             base.XuatThongTin();
         }
 
-        public bool DangKy()
+        public static bool DangKy()
         {
             Console.WriteLine("--- Nhập thông tin cơ bản ---");
-            hoVaTen = Inputter.GetString("Họ và tên: ", "Tên không được bỏ trống");
-            cccd = Inputter.GetStringF("Số CCCD: ", "CCCD không hợp lệ", "^[0-9]{9}$|^[0-9]{12}$");
-            sdt = Inputter.GetStringF("Số điện thoại: ", "Số điện thoại không hợp lệ", "^0[0-9]{9}$");
-            gioiTinh = Inputter.GetInteger("Giới tính ('1' - Nam|'0' - Nữ): ", "Không hợp lệ!", 0, 1) == 1 ? true : false;
+            string hoVaTen = Inputter.GetString("Họ và tên: ", "Tên không được bỏ trống");
+            string cccd = Inputter.GetStringF("Số CCCD: ", "CCCD không hợp lệ", "^[0-9]{9}$|^[0-9]{12}$");
+            string sdt = Inputter.GetStringF("Số điện thoại: ", "Số điện thoại không hợp lệ", "^0[0-9]{9}$");
+            bool gioiTinh = Inputter.GetInteger("Giới tính ('1' - Nam|'0' - Nữ): ", "Không hợp lệ!", 0, 1) == 1 ? true : false;
             DateTime ngaySinh;
         NHAP_LAI_NGAY_SINH:
             try
@@ -47,13 +47,13 @@ namespace DoAnCuoiKiOOP_v2
                 Console.WriteLine("Ngày tháng năm sinh không hợp lệ.");
                 goto NHAP_LAI_NGAY_SINH;
             }
-            ngheNghiep = Inputter.GetString("Nghề nghiệp: ", "Nghề nghiệp không được bỏ trống");
-            diaChi = Inputter.GetString("Địa chỉ: ", "Địa chỉ không được bỏ trống");
-            tenDangNhap = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
-            matKhau = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
+            string ngheNghiep = Inputter.GetString("Nghề nghiệp: ", "Nghề nghiệp không được bỏ trống");
+            string diaChi = Inputter.GetString("Địa chỉ: ", "Địa chỉ không được bỏ trống");
+            string tenDangNhap = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
+            string matKhau = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
+
             chuList.Add(new NguoiChoThue(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau));
             return true;
-
         }
 
         public static NguoiChoThue DangNhap()
@@ -83,7 +83,7 @@ namespace DoAnCuoiKiOOP_v2
             int soPhong = Inputter.GetInteger("Nhập số phòng: ", "Vui lòng nhập đúng định dạng");
             double giaPhong = Inputter.GetDouble("Nhập giá phòng: ", "Vui lòng nhập đúng định dạng");
             int slGhiChu = Inputter.GetInteger("Nhập số lượng ghi chú: ", "Vui lòng nhập đúng định dạng");
-            string[] ghiChu = new string[100];
+            string[] ghiChu = {""};
             for(int i = 0; i < slGhiChu; ++i)
             {
                 ghiChu[i] = Inputter.GetString("Nhập ghi chú " + (i + 1) + ": ", "Vui lòng không bỏ trống");
@@ -91,8 +91,8 @@ namespace DoAnCuoiKiOOP_v2
             double giaDien = Inputter.GetDouble("Nhập giá điện (VNĐ/kWh): ","Vui lòng nhập đúng định dạng");
             double giaNuoc = Inputter.GetDouble("Nhập giá nước (VNĐ/m^3): ","Vui lòng nhập đúng định dạng");
             PhongTro temp = new PhongTro(dienTich, noiThat, diaChi, soPhong, 0, giaPhong, ghiChu, this, null, false, giaDien, giaNuoc,null);
-            temp.Save();
             dsPhongTro[slTro++] = temp;
+            PhongTro.PhongTroList.Add(temp);
         }
 
         public void XuatThongTinDSPhongTro()

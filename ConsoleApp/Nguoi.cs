@@ -33,7 +33,9 @@ namespace DoAnCuoiKiOOP_v2
             this.matKhau = matKhau;
         }
 
-        public Nguoi() { }
+        public Nguoi() {
+
+        }
 
         ~Nguoi() { }
 
@@ -49,7 +51,7 @@ namespace DoAnCuoiKiOOP_v2
             Console.WriteLine("Nghề nghiệp: {0}", ngheNghiep);
         }
 
-        /*public Nguoi DangKy()
+        /*public bool DangKi()
         {
             Console.WriteLine("--- Nhập thông tin cơ bản ---");
             string hoVaTen = Inputter.GetString("Họ và tên: ", "Tên không được bỏ trống");
@@ -74,11 +76,8 @@ namespace DoAnCuoiKiOOP_v2
             string diaChi = Inputter.GetString("Địa chỉ: ", "Địa chỉ không được bỏ trống");
             string tenDangNhap = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
             string matKhau = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
-            return new Nguoi(hoVaTen, cccd, sdt, gioiTinh == 1 ? true : false, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau);           
-            
-
+            //return new Nguoi(hoVaTen, cccd, sdt, gioiTinh == 1 ? true : false, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau);           
         }*/
-
 
 
         public virtual void HeThong()
