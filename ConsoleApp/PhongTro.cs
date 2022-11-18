@@ -171,7 +171,10 @@ namespace DoAnCuoiKiOOP_v2
             foreach(PhongTro pt in PhongTroList)
             {
                 if (pt.tinhTrang == false)
-                    dsPT[dem++] = pt;
+                {
+                    dsPT[dem] = pt;
+                    dem++;
+                }
             }
             return dsPT;
         }

@@ -24,6 +24,7 @@ namespace DoAnCuoiKiOOP_v2
 
         public static bool DangKy()
         {
+            Program.InputUnicode();
             Console.WriteLine("--- Nhập thông tin cơ bản ---");
             string hoVaTen = Inputter.GetString("Họ và tên: ", "Tên không được bỏ trống");
             string cccd = Inputter.GetStringF("Số CCCD: ", "CCCD không hợp lệ", "^[0-9]{9}$|^[0-9]{12}$");

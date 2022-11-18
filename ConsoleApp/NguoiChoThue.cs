@@ -28,6 +28,7 @@ namespace DoAnCuoiKiOOP_v2
 
         public static bool DangKy()
         {
+            Program.InputUnicode();
             Console.WriteLine("--- Nhập thông tin cơ bản ---");
             string hoVaTen = Inputter.GetString("Họ và tên: ", "Tên không được bỏ trống");
             string cccd = Inputter.GetStringF("Số CCCD: ", "CCCD không hợp lệ", "^[0-9]{9}$|^[0-9]{12}$");
@@ -71,6 +72,7 @@ namespace DoAnCuoiKiOOP_v2
 
         public void ThemPhongTro()
         {
+            Program.InputUnicode();
             double dienTich = Inputter.GetDouble("Nhập diện tích của phòng trọ: ", "Vui lòng nhập đúng định dạng");
             int slNoiThat = Inputter.GetInteger("Nhập số lượng nội thất: ", "Vui lòng nhập đúng định dạng");
             string[,] noiThat = new string[100, 100];

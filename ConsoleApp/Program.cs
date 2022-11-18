@@ -3,14 +3,14 @@ using System;
 
 namespace DoAnCuoiKiOOP_v2
 {
-    class Program
+    public class Program
     {
-        
-
-        static void Main()
+        public static void Main()
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.InputEncoding = System.Text.Encoding.UTF8;
+            // Lưu ý:
+            // Định dạng tiền nhập vào sẽ là 10000 - tương đương với 10k VNĐ
+            InputUnicode();
+            OutputUnicode();
 
             // Công ty môi giới và người môi giới
             CongTyMoiGioi CTMG = new CongTyMoiGioi("vài thành viên số 19", "Lớp OOP_9", "2111019");
@@ -156,6 +156,16 @@ namespace DoAnCuoiKiOOP_v2
             // Code Bách
             // Ghi file ghi vào list
 
+        }
+
+        public static void InputUnicode()
+        {
+            Console.InputEncoding = System.Text.Encoding.Unicode;
+        }
+
+        public static void OutputUnicode()
+        {
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
         }
     }
 }

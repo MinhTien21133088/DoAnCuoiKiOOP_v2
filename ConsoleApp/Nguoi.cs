@@ -41,14 +41,15 @@ namespace DoAnCuoiKiOOP_v2
 
         protected void XuatThongTin()
         {
-            Console.WriteLine("Họ và tên:   {0}", hoVaTen);
-            Console.WriteLine("CCCD:        {0}", cccd);
-            Console.WriteLine("SĐT:         {0}", sdt);
-            Console.WriteLine("Giới tính:   {0}", gioiTinh ? "Nam" : "Nữ");
-            Console.WriteLine("Ngày sinh:   {0}", ngaySinh.ToString("dd/MM/yyyy"));
-            Console.WriteLine("Tuổi:        {0}", tuoi);
-            Console.WriteLine("Địa chỉ:     {0}", diaChi);
-            Console.WriteLine("Nghề nghiệp: {0}", ngheNghiep);
+            Program.OutputUnicode();
+            Console.WriteLine("Họ và tên:   " + hoVaTen);
+            Console.WriteLine("CCCD:        " + cccd);
+            Console.WriteLine("SĐT:         " + sdt);
+            Console.WriteLine("Giới tính:   " + string.Format(gioiTinh ? "Nam" : "Nữ"));
+            Console.WriteLine("Ngày sinh:   " + ngaySinh.ToString("dd/MM/yyyy"));
+            Console.WriteLine("Tuổi:        " + tuoi);
+            Console.WriteLine("Địa chỉ:     " + diaChi);
+            Console.WriteLine("Nghề nghiệp: " + ngheNghiep);
         }
 
         /*public bool DangKi()

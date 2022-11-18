@@ -225,6 +225,7 @@ namespace DoAnCuoiKiOOP_v2
         // method ép nhập String ko bỏ trống
         public static string GetStringF(string inputMsg)
         {
+            Program.InputUnicode();
             Console.Write(inputMsg);
             while (true)
             {
@@ -250,6 +251,7 @@ namespace DoAnCuoiKiOOP_v2
 
         public static string GetString(string inputMsg, string errorMsg)
         {
+            Program.InputUnicode();
             Console.Write(inputMsg);
             while (true)
             {
@@ -276,6 +278,7 @@ namespace DoAnCuoiKiOOP_v2
         // method ép nhập String ko bỏ trống và phải nhập theo format
         public static string GetStringF(string inputMsg, string regex)
         {
+            Program.InputUnicode();
             Console.Write(inputMsg);
             while (true)
             {
@@ -301,6 +304,7 @@ namespace DoAnCuoiKiOOP_v2
 
         public static string GetStringF(string inputMsg, string errorMsg, string regex)
         {
+            Program.InputUnicode();
             Console.Write(inputMsg);
             while (true)
             {
