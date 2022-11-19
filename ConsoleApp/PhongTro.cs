@@ -62,9 +62,9 @@ namespace DoAnCuoiKiOOP_v2
                 Console.WriteLine(ghiChu[i]);
             Console.WriteLine("Nội thất (đếm số ô có thể) | Giá tiền");
 
-            //Minh Tiến fixx bug
-            //for (int i = 0; i < noiThat.GetLength(0); i++)
-                //Console.WriteLine("{0,-(10)} | {1} ", noiThat[i, 0], noiThat[i,1]); 
+            
+            for (int i = 0; i < noiThat.GetLength(0); i++)
+                Console.WriteLine("{0,-(10)} | {1} ", noiThat[i, 0], noiThat[i,1]); 
             Console.WriteLine("Tình trạng:          " + (tinhTrang ? "đã được thuê" : "chưa được thuê"));
             Console.WriteLine("Số người ở:          " + soNguoi);
         }
