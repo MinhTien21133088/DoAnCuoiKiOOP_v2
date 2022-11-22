@@ -115,7 +115,6 @@ namespace DoAnCuoiKiOOP_v2
                                         }
                                 }
                             }
-                            //goto TRO_LAI_MENU_CHINH;
                             //break;
                         }
                     case 3:
