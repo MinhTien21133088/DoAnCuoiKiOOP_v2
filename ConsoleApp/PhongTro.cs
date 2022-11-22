@@ -58,6 +58,7 @@ namespace DoAnCuoiKiOOP_v2
             GiaNuoc = giaNuoc;
             Review1 = review;
         }
+        public PhongTro() { }
 
         ~PhongTro() { }
 

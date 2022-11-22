@@ -161,14 +161,9 @@ namespace DoAnCuoiKiOOP_v2
             }
         }
 
-        /*public void Save()
+        public void Save()
         {
             DocGhi<NguoiChoThue>.Write(chuList, "nguoichothue.csv");
-            var dsNguoiChu = DocGhi<NguoiChoThue>.Read("nguoichothue.csv");
-            foreach (var chu in dsNguoiChu)
-            {
-                chu.XuatThongTin();
-            }
-        }*/
+        }
     }
 }

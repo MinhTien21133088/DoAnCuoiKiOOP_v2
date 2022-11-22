@@ -7,6 +7,33 @@ namespace DoAnCuoiKiOOP_v2
     {
         public static void Main()
         {
+            var dsNguoiChoThue = DocGhi<NguoiChoThue>.Read("chu.csv");
+            foreach (var NguoiChoThue in dsNguoiChoThue)
+            {
+                if (NguoiChoThue != null)
+                    NguoiChoThue.ChuList.Add(NguoiChoThue);
+            }
+
+            var dsNguoiThue = DocGhi<NguoiThue>.Read("thue.csv");
+            foreach (var nguoiThue in dsNguoiThue)
+            {
+                if (nguoiThue != null)
+                    NguoiThue.ThueList.Add(nguoiThue);
+            }
+
+            var dsHopDong = DocGhi<HopDong>.Read("hopdong.csv");
+            foreach (var hopdong in dsHopDong)
+            {
+                if (hopdong != null)
+                    HopDong.HopdongList.Add(hopdong);
+            }
+
+            var dsPhongTro = DocGhi<PhongTro>.Read("phongtro.csv");
+            foreach (var phongtro in dsPhongTro)
+            {
+                if (phongtro != null)
+                    PhongTro.PhongTroList.Add(phongtro);
+            }
             // Lưu ý:
             // Định dạng tiền nhập vào sẽ là 10000 - tương đương với 10k VNĐ
             InputUnicode();

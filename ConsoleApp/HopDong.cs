@@ -38,6 +38,7 @@ namespace DoAnCuoiKiOOP_v2
             TienCoc = phongTro.GiaPhong * 2;
             //Save();
         }
+        public HopDong() { }
 
         ~HopDong() { }
 
@@ -122,14 +123,9 @@ namespace DoAnCuoiKiOOP_v2
 
         }
 
-        /*public void Save()
+        public void Save()
         {
-            DocGhi<HopDong>.Write(hopdongList, "hopdong.csv");
-            var dsHopDong = DocGhi<HopDong>.Read("dong.csv");
-            foreach (var hopdong in dsHopDong)
-            {
-                hopdong.XuatThongTin();
-            }
-        }*/
+            DocGhi<HopDong>.Write(hopdongList, "hopdong.csv");        
+        }
     }
 }
