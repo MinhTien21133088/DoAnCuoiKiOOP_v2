@@ -7,6 +7,7 @@ namespace DoAnCuoiKiOOP_v2
     {
         public static void Main()
         {
+
             var dsNguoiChoThue = DocGhi<NguoiChoThue>.Read("chu.csv");
             foreach (var NguoiChoThue in dsNguoiChoThue)
             {
@@ -36,6 +37,7 @@ namespace DoAnCuoiKiOOP_v2
             }
             // Lưu ý:
             // Định dạng tiền nhập vào sẽ là 10000 - tương đương với 10k VNĐ
+            
             InputUnicode();
             OutputUnicode();
 
