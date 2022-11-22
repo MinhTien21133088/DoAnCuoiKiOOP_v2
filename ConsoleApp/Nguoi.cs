@@ -8,48 +8,61 @@ namespace DoAnCuoiKiOOP_v2
 {
     public class Nguoi
     {
-        protected string hoVaTen;
-        protected string cccd;
-        protected string sdt;
-        protected bool gioiTinh; // true là nam, false là nữ
-        protected DateTime ngaySinh;
-        protected int tuoi;
-        protected string diaChi;
-        protected string ngheNghiep;
-        protected string tenDangNhap;
-        protected string matKhau;
+        #region Fields
+        private string hoVaTen;
+        private string cccd;
+        private string sdt;
+        private bool gioiTinh; // true là nam, false là nữ
+        private DateTime ngaySinh;
+        private int tuoi;
+        private string diaChi;
+        private string ngheNghiep;
+        private string tenDangNhap;
+        private string matKhau;
+        #endregion
+
+        #region Properties
+        public string HoVaTen { get => hoVaTen; set => hoVaTen = value; }
+        public string Cccd { get => cccd; set => cccd = value; }
+        public string Sdt { get => sdt; set => sdt = value; }
+        public bool GioiTinh { get => gioiTinh; set => gioiTinh = value; }
+        public DateTime NgaySinh { get => ngaySinh; set => ngaySinh = value; }
+        public int Tuoi { get => tuoi; set => tuoi = value; }
+        public string DiaChi { get => diaChi; set => diaChi = value; }
+        public string NgheNghiep { get => ngheNghiep; set => ngheNghiep = value; }
+        public string TenDangNhap { get => tenDangNhap; set => tenDangNhap = value; }
+        public string MatKhau { get => matKhau; set => matKhau = value; }
+        #endregion
 
         public Nguoi(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep, string diaChi, string tenDangNhap, string matKhau)
         {
-            this.hoVaTen = hoVaTen;
-            this.cccd = cccd;
-            this.sdt = sdt;
-            this.gioiTinh = gioiTinh;
-            this.ngaySinh = ngaySinh;
-            tuoi = DateTime.Now.Year - ngaySinh.Year;
-            this.diaChi = diaChi;
-            this.ngheNghiep = ngheNghiep;
-            this.tenDangNhap = tenDangNhap;
-            this.matKhau = matKhau;
+            this.HoVaTen = hoVaTen;
+            this.Cccd = cccd;
+            this.Sdt = sdt;
+            this.GioiTinh = gioiTinh;
+            this.NgaySinh = ngaySinh;
+            Tuoi = DateTime.Now.Year - ngaySinh.Year;
+            this.DiaChi = diaChi;
+            this.NgheNghiep = ngheNghiep;
+            this.TenDangNhap = tenDangNhap;
+            this.MatKhau = matKhau;
         }
 
-        public Nguoi() {
-
-        }
-
+        public Nguoi() { }
+        
         ~Nguoi() { }
 
         protected void XuatThongTin()
         {
             Program.OutputUnicode();
-            Console.WriteLine("Họ và tên:   " + hoVaTen);
-            Console.WriteLine("CCCD:        " + cccd);
-            Console.WriteLine("SĐT:         " + sdt);
-            Console.WriteLine("Giới tính:   " + string.Format(gioiTinh ? "Nam" : "Nữ"));
-            Console.WriteLine("Ngày sinh:   " + ngaySinh.ToString("dd/MM/yyyy"));
-            Console.WriteLine("Tuổi:        " + tuoi);
-            Console.WriteLine("Địa chỉ:     " + diaChi);
-            Console.WriteLine("Nghề nghiệp: " + ngheNghiep);
+            Console.WriteLine("Họ và tên:   " + HoVaTen);
+            Console.WriteLine("CCCD:        " + Cccd);
+            Console.WriteLine("SĐT:         " + Sdt);
+            Console.WriteLine("Giới tính:   " + string.Format(GioiTinh ? "Nam" : "Nữ"));
+            Console.WriteLine("Ngày sinh:   " + NgaySinh.ToString("dd/MM/yyyy"));
+            Console.WriteLine("Tuổi:        " + Tuoi);
+            Console.WriteLine("Địa chỉ:     " + DiaChi);
+            Console.WriteLine("Nghề nghiệp: " + NgheNghiep);
         }
 
         /*public bool DangKi()
@@ -88,7 +101,7 @@ namespace DoAnCuoiKiOOP_v2
 
         //public bool TimKiem(string ten, string mK)
         //{
-            
+
         //    return true;
         //}
 

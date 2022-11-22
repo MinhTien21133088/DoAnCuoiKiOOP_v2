@@ -152,6 +152,8 @@ namespace DoAnCuoiKiOOP_v2
                 break;
             }
 
+            NguoiChoThue testChoThue = new NguoiChoThue("tien", "123", "123", true, new DateTime(2022, 11, 22), "sv", "so 1 vvn", "a", "123");
+            _ = testChoThue.HoVaTen; // test
             // Code Bách
             // Ghi file ghi vào list
 

@@ -5,22 +5,24 @@ using System.Text;
 
 namespace DoAnCuoiKiOOP_v2
 {
-    
+
     public class NguoiThue : Nguoi
     {
         private double tienNo;
         private PhongTro phongTro;
-        static List<NguoiThue> thueList = new List<NguoiThue>();
+        private static List<NguoiThue> thueList = new List<NguoiThue>();
+
+        public double TienNo { get => tienNo; set => tienNo = value; }
+        public PhongTro PhongTro { get => phongTro; set => phongTro = value; }
+        public static List<NguoiThue> ThueList { get => thueList; set => thueList = value; }
 
         public NguoiThue(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep, string diaChi, string tenDangNhap, string matKhau) : base(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau)
         {
         }
-        
 
         public NguoiThue() { }
-        
-        ~NguoiThue() { }
 
+        ~NguoiThue() { }
 
         public static bool DangKy()
         {
@@ -48,19 +50,18 @@ namespace DoAnCuoiKiOOP_v2
             string diaChi = Inputter.GetString("Địa chỉ: ", "Địa chỉ không được bỏ trống");
             string tenDangNhap = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
             string matKhau = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
-            
-            thueList.Add(new NguoiThue(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau));
+
+            ThueList.Add(new NguoiThue(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau));
             return true;
         }
-
 
         public static NguoiThue DangNhap()
         {
             string ten = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
             string mK = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
-            foreach (NguoiThue nguoi in thueList)
+            foreach (NguoiThue nguoi in ThueList)
             {
-                if (ten == nguoi.tenDangNhap && mK == nguoi.matKhau)
+                if (ten == nguoi.TenDangNhap && mK == nguoi.MatKhau)
                     return nguoi;
             }
             Console.WriteLine("Tên đăng nhập hoặc mật khẩu không hợp lệ");
@@ -69,47 +70,47 @@ namespace DoAnCuoiKiOOP_v2
 
         public double TienConNo()
         {
-            return tienNo;
+            return TienNo;
         }
 
         public void XoaNo()
         {
-            tienNo = 0;
+            TienNo = 0;
             return;
         }
 
         public void GhiNo(double soTienNo)
         {
-            tienNo += soTienNo;
+            TienNo += soTienNo;
             return;
         }
 
         public void ThanhToanTro()
         {
-            if (phongTro == null)
+            if (PhongTro == null)
             {
                 Console.WriteLine("Bạn chưa đăng ký bất kỳ trọ nào");
                 return;
             }
-            phongTro.ThanhToan();
+            PhongTro.ThanhToan();
         }
 
         public void ThanhToanNo()
         {
-            Console.WriteLine("Nợ hiện tại của bạn: " + tienNo);
+            Console.WriteLine("Nợ hiện tại của bạn: " + TienNo);
             int temp = Inputter.GetInteger("Nhập số tiền muốn thanh toán: ", "Vui lòng nhập đúng định dạng");
-            if (temp >= tienNo)
+            if (temp >= TienNo)
             {
                 Console.WriteLine("Thanh toán nợ thành công!");
-                Console.WriteLine("Số tiền dư ra: " + (temp - tienNo));
-                tienNo = 0;
+                Console.WriteLine("Số tiền dư ra: " + (temp - TienNo));
+                TienNo = 0;
                 return;
             }
             else
             {
-                tienNo -= temp;
+                TienNo -= temp;
                 Console.WriteLine("Thanh toán nợ thành công!");
-                Console.WriteLine("Số tiền nợ còn lại: " + tienNo);
+                Console.WriteLine("Số tiền nợ còn lại: " + TienNo);
                 return;
             }
         }
@@ -130,9 +131,9 @@ namespace DoAnCuoiKiOOP_v2
                     return;
                 foreach (PhongTro pT in dsPT)
                 {
-                    if (pT.SoPhong() == choice)
+                    if (pT.SoPhong == choice)
                     {
-                        phongTro = pT;
+                        PhongTro = pT;
                         break;
                     }
                 }
@@ -140,11 +141,9 @@ namespace DoAnCuoiKiOOP_v2
                 break;
             }
             Console.WriteLine("Hợp đồng của bạn có thời hạn 6 tháng kể từ ngày lập hợp đồng này");
-            Console.WriteLine("Tiền cọc trọ của bạn là: " + phongTro.GiaPhong() * 2);
-            HopDong hd = new HopDong(DateTime.Today.AddMonths(6), this, phongTro.NguoiChoThue(), phongTro);
+            Console.WriteLine("Tiền cọc trọ của bạn là: " + PhongTro.GiaPhong * 2);
+            HopDong hd = new HopDong(DateTime.Today.AddMonths(6), this, PhongTro.NguoiChoThue, PhongTro);
         }
-
-
 
         public override void HeThong() // Nếu đăng nhập thành công sẽ chạy vào hàm hệ thống  
         {
