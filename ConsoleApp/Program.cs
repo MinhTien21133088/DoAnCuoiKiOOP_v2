@@ -3,41 +3,12 @@ using System;
 
 namespace DoAnCuoiKiOOP_v2
 {
-    public class Program
+    public static class Program
     {
-        public static void Main()
+        static void Main()
         {
-
-            var dsNguoiChoThue = DocGhi<NguoiChoThue>.Read("chu.csv");
-            foreach (var NguoiChoThue in dsNguoiChoThue)
-            {
-                if (NguoiChoThue != null)
-                    NguoiChoThue.ChuList.Add(NguoiChoThue);
-            }
-
-            var dsNguoiThue = DocGhi<NguoiThue>.Read("thue.csv");
-            foreach (var nguoiThue in dsNguoiThue)
-            {
-                if (nguoiThue != null)
-                    NguoiThue.ThueList.Add(nguoiThue);
-            }
-
-            var dsHopDong = DocGhi<HopDong>.Read("hopdong.csv");
-            foreach (var hopdong in dsHopDong)
-            {
-                if (hopdong != null)
-                    HopDong.HopdongList.Add(hopdong);
-            }
-
-            var dsPhongTro = DocGhi<PhongTro>.Read("phongtro.csv");
-            foreach (var phongtro in dsPhongTro)
-            {
-                if (phongtro != null)
-                    PhongTro.PhongTroList.Add(phongtro);
-            }
             // Lưu ý:
             // Định dạng tiền nhập vào sẽ là 10000 - tương đương với 10k VNĐ
-            
             InputUnicode();
             OutputUnicode();
 
@@ -144,6 +115,7 @@ namespace DoAnCuoiKiOOP_v2
                                         }
                                 }
                             }
+                            //goto TRO_LAI_MENU_CHINH;
                             //break;
                         }
                     case 3:
@@ -181,8 +153,6 @@ namespace DoAnCuoiKiOOP_v2
                 break;
             }
 
-            NguoiChoThue testChoThue = new NguoiChoThue("tien", "123", "123", true, new DateTime(2022, 11, 22), "sv", "so 1 vvn", "a", "123");
-            _ = testChoThue.HoVaTen; // test
             // Code Bách
             // Ghi file ghi vào list
 

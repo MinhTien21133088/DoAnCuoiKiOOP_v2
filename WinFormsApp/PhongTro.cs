@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
+using WinFormsApp;
 
 namespace DoAnCuoiKiOOP_v2
 {
@@ -50,23 +51,9 @@ namespace DoAnCuoiKiOOP_v2
 
         public void XuatThongTin()
         {
-            Console.WriteLine("--- Thông tin phòng trọ ---");
-            Console.WriteLine("Số phòng:            " + soPhong);
-            Console.WriteLine("Diện tích:           " + dienTich);
-            Console.WriteLine("Địa chỉ:             " + diaChi);
-            Console.WriteLine("Giá phòng:           " + giaPhong);
-            Console.WriteLine("Tiền điện (VNĐ/kWh): " + giaDien);
-            Console.WriteLine("Tiền nước (VNĐ/m^3): " + giaNuoc);
-            Console.WriteLine("Ghi chú: ");
-            for (int i = 0; i < ghiChu.Length; i++)
-                Console.WriteLine(ghiChu[i]);
-            Console.WriteLine("Nội thất (đếm số ô có thể) | Giá tiền");
-
+            Form form = new Form();
             
-            for (int i = 0; i < noiThat.GetLength(0); i++)
-                Console.WriteLine("{0,-(10)} | {1} ", noiThat[i, 0], noiThat[i,1]); 
-            Console.WriteLine("Tình trạng:          " + (tinhTrang ? "đã được thuê" : "chưa được thuê"));
-            Console.WriteLine("Số người ở:          " + soNguoi);
+            form.ShowDialog();
         }
 
         public double GiaPhong()
