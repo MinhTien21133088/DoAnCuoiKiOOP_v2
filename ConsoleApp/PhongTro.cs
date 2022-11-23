@@ -69,25 +69,6 @@ namespace DoAnCuoiKiOOP_v2
             Console.WriteLine("Số người ở:          " + soNguoi);
         }
 
-        public double GiaPhong()
-        {
-            return giaPhong;
-        }
-
-        public int SoPhong()
-        {
-            return soPhong;
-        }
-        public string[] GhiChu()
-        {
-            return ghiChu;
-        }
-
-        public NguoiChoThue NguoiChoThue()
-        {
-            return nguoiChoThue;
-        }
-
         public void CapNhatTinhTrang(bool tinhTrang, int soNguoi, string[] ghiChu)
         {
             this.tinhTrang = tinhTrang;

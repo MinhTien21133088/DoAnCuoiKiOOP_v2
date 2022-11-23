@@ -9,8 +9,8 @@ namespace DoAnCuoiKiOOP_v2
     public class NguoiChoThue : Nguoi
     {
         private PhongTro[] dsPhongTro = new PhongTro[100];
-        private int slTro = 0;
-        static List<NguoiChoThue> chuList = new List<NguoiChoThue>();
+        private int slPhongTro = 0;
+        static List<NguoiChoThue> dsNguoiChoThue = new List<NguoiChoThue>();
 
         public NguoiChoThue(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep, string diaChi, string tenDangNhap, string matKhau) : base(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau)
         {
@@ -26,42 +26,16 @@ namespace DoAnCuoiKiOOP_v2
             base.XuatThongTin();
         }
 
-        public static bool DangKy()
+        public static void DangKy()
         {
-            Program.InputUnicode();
-            Console.WriteLine("--- Nhập thông tin cơ bản ---");
-            string hoVaTen = Inputter.GetString("Họ và tên: ", "Tên không được bỏ trống");
-            string cccd = Inputter.GetStringF("Số CCCD: ", "CCCD không hợp lệ", "^[0-9]{9}$|^[0-9]{12}$");
-            string sdt = Inputter.GetStringF("Số điện thoại: ", "Số điện thoại không hợp lệ", "^0[0-9]{9}$");
-            bool gioiTinh = Inputter.GetInteger("Giới tính ('1' - Nam|'0' - Nữ): ", "Không hợp lệ!", 0, 1) == 1 ? true : false;
-            DateTime ngaySinh;
-        NHAP_LAI_NGAY_SINH:
-            try
-            {
-                ngaySinh = DateTime.ParseExact(
-                    Inputter.GetStringF(
-                        "Ngày tháng năm sinh (dd/MM/yyyy): ", "Ngày tháng năm sinh không hợp lệ",
-                        "((0|1)[0-9]|2[0-9]|3[0-9])/(0[0-9]|1[0-2])/((19|20)[0-9][0-9])$"), "dd/MM/yyyy", null);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Ngày tháng năm sinh không hợp lệ.");
-                goto NHAP_LAI_NGAY_SINH;
-            }
-            string ngheNghiep = Inputter.GetString("Nghề nghiệp: ", "Nghề nghiệp không được bỏ trống");
-            string diaChi = Inputter.GetString("Địa chỉ: ", "Địa chỉ không được bỏ trống");
-            string tenDangNhap = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
-            string matKhau = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
-
-            chuList.Add(new NguoiChoThue(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau));
-            return true;
+            dsNguoiChoThue.Add((NguoiChoThue)DangKy(0));
         }
 
         public static NguoiChoThue DangNhap()
         {
             string ten = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
             string mK = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
-            foreach (NguoiChoThue nguoi in chuList)
+            foreach (NguoiChoThue nguoi in dsNguoiChoThue)
             {
                 if (ten == nguoi.tenDangNhap && mK == nguoi.matKhau)
                     return nguoi;
@@ -76,37 +50,37 @@ namespace DoAnCuoiKiOOP_v2
             double dienTich = Inputter.GetDouble("Nhập diện tích của phòng trọ: ", "Vui lòng nhập đúng định dạng");
             int slNoiThat = Inputter.GetInteger("Nhập số lượng nội thất: ", "Vui lòng nhập đúng định dạng");
             string[,] noiThat = new string[100, 100];
-            for(int i = 0;i < slNoiThat; ++i)
+            for (int i = 0; i < slNoiThat; ++i)
             {
                 noiThat[i, 0] = Inputter.GetString("Nhập nội thất: ", "Vui lòng không bỏ trống");
                 noiThat[i, 1] = Inputter.GetInteger("Nhập giá trị nội thất: ", "Vui lòng nhập đúng định dạng").ToString();
             }
-            string diaChi = Inputter.GetString("Nhập địa chỉ: ","Vui lòng không bỏ trống");
+            string diaChi = Inputter.GetString("Nhập địa chỉ: ", "Vui lòng không bỏ trống");
             int soPhong = Inputter.GetInteger("Nhập số phòng: ", "Vui lòng nhập đúng định dạng");
             double giaPhong = Inputter.GetDouble("Nhập giá phòng: ", "Vui lòng nhập đúng định dạng");
             int slGhiChu = Inputter.GetInteger("Nhập số lượng ghi chú: ", "Vui lòng nhập đúng định dạng");
-            string[] ghiChu = {""};
-            for(int i = 0; i < slGhiChu; ++i)
+            string[] ghiChu = { "" };
+            for (int i = 0; i < slGhiChu; ++i)
             {
                 ghiChu[i] = Inputter.GetString("Nhập ghi chú " + (i + 1) + ": ", "Vui lòng không bỏ trống");
             }
-            double giaDien = Inputter.GetDouble("Nhập giá điện (VNĐ/kWh): ","Vui lòng nhập đúng định dạng");
-            double giaNuoc = Inputter.GetDouble("Nhập giá nước (VNĐ/m^3): ","Vui lòng nhập đúng định dạng");
-            PhongTro temp = new PhongTro(dienTich, noiThat, diaChi, soPhong, 0, giaPhong, ghiChu, this, null, false, giaDien, giaNuoc,null);
-            dsPhongTro[slTro++] = temp;
+            double giaDien = Inputter.GetDouble("Nhập giá điện (VNĐ/kWh): ", "Vui lòng nhập đúng định dạng");
+            double giaNuoc = Inputter.GetDouble("Nhập giá nước (VNĐ/m^3): ", "Vui lòng nhập đúng định dạng");
+            PhongTro temp = new PhongTro(dienTich, noiThat, diaChi, soPhong, 0, giaPhong, ghiChu, this, null, false, giaDien, giaNuoc, null);
+            dsPhongTro[slPhongTro++] = temp;
             PhongTro.PhongTroList.Add(temp);
         }
 
         public void XuatThongTinDSPhongTro()
         {
-            foreach(PhongTro pt in dsPhongTro)
+            foreach (PhongTro pt in dsPhongTro)
             {
                 if (pt != null)
                 {
                     pt.XuatThongTin();
                     Console.WriteLine("------------------------");
                 }
-            }    
+            }
         }
 
         public override void HeThong()
@@ -157,10 +131,10 @@ namespace DoAnCuoiKiOOP_v2
             }
         }
 
-        
+
         /*public void Save()
         {
-            DocGhi<NguoiChoThue>.Write(chuList, "nguoichothue.csv");
+            DocGhi<NguoiChoThue>.Write(dsNguoiChoThue, "nguoichothue.csv");
             var dsNguoiChu = DocGhi<NguoiChoThue>.Read("nguoichothue.csv");
             foreach (var chu in dsNguoiChu)
             {

@@ -8,13 +8,13 @@ namespace DoAnCuoiKiOOP_v2
 {
     public class HopDong
     {
+        private string maSoHopDong = "";
         private DateTime thoiHan;
         private double tienCoc;
-        private NguoiThue nguoiThue;
         private NguoiChoThue nguoiChoThue;
-        private string maSoHopDong = "";
+        private NguoiThue nguoiThue;
         private PhongTro phongTro;
-        private static List<HopDong> hopdongList = new List<HopDong>();
+        private static List<HopDong> dsHopDong = new List<HopDong>();
 
         public HopDong(DateTime thoiHan, NguoiThue nguoiThue, NguoiChoThue nguoiChoThue, PhongTro phongTro)
         {
@@ -23,7 +23,7 @@ namespace DoAnCuoiKiOOP_v2
             this.nguoiChoThue = nguoiChoThue;
             TaoMaHopDong();
             this.phongTro = phongTro;
-            tienCoc = phongTro.GiaPhong() * 2;
+            this.tienCoc = phongTro.GiaPhong * 2;
             //Save();
         }
 
@@ -34,11 +34,11 @@ namespace DoAnCuoiKiOOP_v2
             
         }
 
-        public static bool Search(string maHD)
+        public static bool Search(string maSoHopDong)
         {
-            foreach(HopDong hd in hopdongList)
+            foreach(HopDong hd in dsHopDong)
             {
-                if(maHD == hd.maSoHopDong)
+                if(maSoHopDong == hd.maSoHopDong)
                 {
                     hd.XuatThongTin();
                     return true;
@@ -112,7 +112,7 @@ namespace DoAnCuoiKiOOP_v2
 
         /*public void Save()
         {
-            DocGhi<HopDong>.Write(hopdongList, "hopdong.csv");
+            DocGhi<HopDong>.Write(dsHopDong, "hopdong.csv");
             var dsHopDong = DocGhi<HopDong>.Read("dong.csv");
             foreach (var hopdong in dsHopDong)
             {
