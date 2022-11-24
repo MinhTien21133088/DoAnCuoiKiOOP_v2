@@ -21,13 +21,13 @@ namespace DoAnCuoiKiOOP_v2
         private double giaDien; // Tien/kWh
         private double giaNuoc; // Tien/m^3
         private string[] review = { "" };
-        private static List<PhongTro> phongtroList = new List<PhongTro>();
+        private static List<PhongTro> dsPhongTro = new List<PhongTro>();
 
-        public static List<PhongTro> PhongTroList
-        {
-            get { return phongtroList; }
-            set { phongtroList = value; }
-        }
+        public int SoPhong { get => soPhong; set => soPhong = value; }
+        public double GiaPhong { get => giaPhong; set => giaPhong = value; }
+        public string[] GhiChu { get => ghiChu; set => ghiChu = value; }
+        public NguoiChoThue NguoiChoThue { get => nguoiChoThue; set => nguoiChoThue = value; }
+        public static List<PhongTro> DsPhongTro { get => dsPhongTro; set => dsPhongTro = value; }
 
         public PhongTro(double dienTich, string[,] noiThat, string diaChi, int soPhong, int soNguoi, double giaPhong, string[] ghiChu, NguoiChoThue nguoiChoThue, NguoiThue nguoiThue, bool tinhTrang, double giaDien, double giaNuoc, string[] review)
         {
@@ -149,7 +149,7 @@ namespace DoAnCuoiKiOOP_v2
         {
             PhongTro[] dsPT = new PhongTro[100];
             int dem = 0;
-            foreach(PhongTro pt in PhongTroList)
+            foreach(PhongTro pt in DsPhongTro)
             {
                 if (pt.tinhTrang == false)
                 {

@@ -1,5 +1,4 @@
-﻿using FileGeneric;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -62,7 +61,7 @@ namespace DoAnCuoiKiOOP_v2
 
             // Xóa thông tin hợp đồng trong file và sửa thông tin trọ trong file
 
-            phongTro.CapNhatTinhTrang(false, 0, phongTro.GhiChu());
+            phongTro.CapNhatTinhTrang(false, 0, phongTro.GhiChu);
             Console.WriteLine("Bạn đã hủy hợp đồng thành công");
         }
 

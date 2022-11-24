@@ -34,7 +34,7 @@ namespace DoAnCuoiKiOOP_v2
                     number = int.Parse(Console.ReadLine());
                     return number;
                 }
-                catch (Exception e)
+                catch //(Exception ex)
                 {
                     
                     VuiLongNhapLai();
@@ -53,7 +53,7 @@ namespace DoAnCuoiKiOOP_v2
                     number = int.Parse(Console.ReadLine());
                     return number;
                 }
-                catch (Exception e)
+                catch //(Exception ex)
                 {
                     Console.WriteLine(errorMsg);
                     VuiLongNhapLai();
@@ -85,7 +85,7 @@ namespace DoAnCuoiKiOOP_v2
                     }
                     return number;
                 }
-                catch (Exception e)
+                catch //(Exception ex)
                 {
                     
                     VuiLongNhapLai(lowerBound, upperBound);
@@ -116,7 +116,7 @@ namespace DoAnCuoiKiOOP_v2
                     }
                     return number;
                 }
-                catch (Exception e)
+                catch //(Exception ex)
                 {
                     Console.WriteLine(errorMsg);
                     VuiLongNhapLai(lowerBound, upperBound);
@@ -136,7 +136,7 @@ namespace DoAnCuoiKiOOP_v2
                     number = double.Parse(Console.ReadLine());
                     return number;
                 }
-                catch (Exception e)
+                catch //(Exception ex)
                 {
                     
                     VuiLongNhapLai();
@@ -155,7 +155,7 @@ namespace DoAnCuoiKiOOP_v2
                     number = double.Parse(Console.ReadLine());
                     return number;
                 }
-                catch (Exception e)
+                catch //(Exception ex)
                 {
                     Console.WriteLine(errorMsg);
                     VuiLongNhapLai();
@@ -185,7 +185,7 @@ namespace DoAnCuoiKiOOP_v2
                     }
                     return number;
                 }
-                catch (Exception e)
+                catch //(Exception ex)
                 {
                     
                     VuiLongNhapLai(lowerBound, upperBound);
@@ -214,7 +214,7 @@ namespace DoAnCuoiKiOOP_v2
                     }
                     return number;
                 }
-                catch (Exception e)
+                catch //(Exception ex)
                 {
                     Console.WriteLine(errorMsg);
                     VuiLongNhapLai(lowerBound, upperBound);
@@ -241,7 +241,7 @@ namespace DoAnCuoiKiOOP_v2
                         return str;
                     }
                 }
-                catch (Exception e)
+                catch //(Exception ex)
                 {
                     
                     VuiLongNhapLai();
@@ -267,7 +267,7 @@ namespace DoAnCuoiKiOOP_v2
                         return str;
                     }
                 }
-                catch (Exception e)
+                catch //(Exception ex)
                 {
                     Console.WriteLine(errorMsg);
                     VuiLongNhapLai();
@@ -294,7 +294,7 @@ namespace DoAnCuoiKiOOP_v2
                         return str;
                     }
                 }
-                catch (Exception e)
+                catch //(Exception ex)
                 {
                     
                     VuiLongNhapLai();
@@ -320,7 +320,7 @@ namespace DoAnCuoiKiOOP_v2
                         return str;
                     }
                 }
-                catch (Exception e)
+                catch //(Exception ex)
                 {
                     Console.WriteLine(errorMsg);
                     VuiLongNhapLai();

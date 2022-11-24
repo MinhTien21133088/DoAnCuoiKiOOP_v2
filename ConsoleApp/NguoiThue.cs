@@ -5,65 +5,43 @@ using System.Text;
 
 namespace DoAnCuoiKiOOP_v2
 {
-    
     public class NguoiThue : Nguoi
     {
         private double tienNo;
-        private PhongTro phongTro;
-        static List<NguoiThue> thueList = new List<NguoiThue>();
+        private PhongTro? phongTro;
+        static List<NguoiThue> dsNguoiThue = new List<NguoiThue>();
 
         public NguoiThue(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep, string diaChi, string tenDangNhap, string matKhau) : base(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau)
         {
         }
         
-
         public NguoiThue() { }
         
         ~NguoiThue() { }
 
-
-        public static bool DangKy()
+        public new void XuatThongTin()
         {
-            Program.InputUnicode();
-            Console.WriteLine("--- Nhập thông tin cơ bản ---");
-            string hoVaTen = Inputter.GetString("Họ và tên: ", "Tên không được bỏ trống");
-            string cccd = Inputter.GetStringF("Số CCCD: ", "CCCD không hợp lệ", "^[0-9]{9}$|^[0-9]{12}$");
-            string sdt = Inputter.GetStringF("Số điện thoại: ", "Số điện thoại không hợp lệ", "^0[0-9]{9}$");
-            bool gioiTinh = Inputter.GetInteger("Giới tính ('1' - Nam|'0' - Nữ): ", "Không hợp lệ!", 0, 1) == 1 ? true : false;
-            DateTime ngaySinh;
-        NHAP_LAI_NGAY_SINH:
-            try
-            {
-                ngaySinh = DateTime.ParseExact(
-                    Inputter.GetStringF(
-                        "Ngày tháng năm sinh (dd/MM/yyyy): ", "Ngày tháng năm sinh không hợp lệ",
-                        "((0|1)[0-9]|2[0-9]|3[0-9])/(0[0-9]|1[0-2])/((19|20)[0-9][0-9])$"), "dd/MM/yyyy", null);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Ngày tháng năm sinh không hợp lệ.");
-                goto NHAP_LAI_NGAY_SINH;
-            }
-            string ngheNghiep = Inputter.GetString("Nghề nghiệp: ", "Nghề nghiệp không được bỏ trống");
-            string diaChi = Inputter.GetString("Địa chỉ: ", "Địa chỉ không được bỏ trống");
-            string tenDangNhap = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
-            string matKhau = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
-            
-            thueList.Add(new NguoiThue(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau));
-            return true;
+            Console.WriteLine("--- Thông tin người thuê ---");
+            base.XuatThongTin();
         }
 
-
-        public static NguoiThue DangNhap()
+        public static void DangKy()
         {
-            string ten = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
-            string mK = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
-            foreach (NguoiThue nguoi in thueList)
+            dsNguoiThue.Add((NguoiThue)DangKy(1));
+        }
+
+        public static new NguoiThue? DangNhap()
+        {
+            string[] thongTinDangNhap = Nguoi.DangNhap().Split(',');
+            /*
+             * thongTinDangNhap[0] mang thông tin tenDangNhap của đối tượng
+             * thongTinDangNhap[1] mang thông tin matKhau của đối tượng
+             */
+            foreach (NguoiThue nguoiThue in dsNguoiThue)
             {
-                if (ten == nguoi.tenDangNhap && mK == nguoi.matKhau)
-                    return nguoi;
+                if (nguoiThue.tenDangNhap == thongTinDangNhap[0] && nguoiThue.matKhau == thongTinDangNhap[1])
+                    return nguoiThue;
             }
-            Console.WriteLine("Tên đăng nhập hoặc mật khẩu không hợp lệ");
             return null;
         }
 
@@ -130,7 +108,7 @@ namespace DoAnCuoiKiOOP_v2
                     return;
                 foreach (PhongTro pT in dsPT)
                 {
-                    if (pT.SoPhong() == choice)
+                    if (pT.SoPhong == choice)
                     {
                         phongTro = pT;
                         break;
@@ -140,8 +118,8 @@ namespace DoAnCuoiKiOOP_v2
                 break;
             }
             Console.WriteLine("Hợp đồng của bạn có thời hạn 6 tháng kể từ ngày lập hợp đồng này");
-            Console.WriteLine("Tiền cọc trọ của bạn là: " + phongTro.GiaPhong() * 2);
-            HopDong hd = new HopDong(DateTime.Today.AddMonths(6), this, phongTro.NguoiChoThue(), phongTro);
+            Console.WriteLine("Tiền cọc trọ của bạn là: " + phongTro.GiaPhong * 2);
+            HopDong hd = new HopDong(DateTime.Today.AddMonths(6), this, phongTro.NguoiChoThue, phongTro);
         }
 
 

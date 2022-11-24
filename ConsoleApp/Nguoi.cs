@@ -98,6 +98,13 @@ namespace DoAnCuoiKiOOP_v2
 
         }
 
+        public static string DangNhap()
+        {
+            string tenDangNhap = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
+            string matKhau = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
+            return string.Format(tenDangNhap + "," + matKhau);
+        }
+
         public virtual void HeThong()
         {
 

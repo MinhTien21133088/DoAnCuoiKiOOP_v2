@@ -1,8 +1,8 @@
-﻿using FileGeneric;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
 
 namespace DoAnCuoiKiOOP_v2
 {
@@ -10,7 +10,7 @@ namespace DoAnCuoiKiOOP_v2
     {
         private PhongTro[] dsPhongTro = new PhongTro[100];
         private int slPhongTro = 0;
-        static List<NguoiChoThue> dsNguoiChoThue = new List<NguoiChoThue>();
+        static List<NguoiChoThue> dsNguoiChoThue = Load();
 
         public NguoiChoThue(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep, string diaChi, string tenDangNhap, string matKhau) : base(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau)
         {
@@ -20,7 +20,7 @@ namespace DoAnCuoiKiOOP_v2
 
         ~NguoiChoThue() { }
 
-        public void XuatThongTin()
+        public new void XuatThongTin()
         {
             Console.WriteLine("--- Thông tin người cho thuê ---");
             base.XuatThongTin();
@@ -29,18 +29,21 @@ namespace DoAnCuoiKiOOP_v2
         public static void DangKy()
         {
             dsNguoiChoThue.Add((NguoiChoThue)DangKy(0));
+            Save();
         }
 
-        public static NguoiChoThue DangNhap()
+        public static new NguoiChoThue? DangNhap()
         {
-            string ten = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
-            string mK = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
-            foreach (NguoiChoThue nguoi in dsNguoiChoThue)
+            string[] thongTinDangNhap = Nguoi.DangNhap().Split(',');
+            /*
+             * thongTinDangNhap[0] mang thông tin tenDangNhap của đối tượng
+             * thongTinDangNhap[1] mang thông tin matKhau của đối tượng
+             */
+            foreach (NguoiChoThue nguoiChoThue in dsNguoiChoThue)
             {
-                if (ten == nguoi.tenDangNhap && mK == nguoi.matKhau)
-                    return nguoi;
+                if (nguoiChoThue.tenDangNhap == thongTinDangNhap[0] && nguoiChoThue.matKhau == thongTinDangNhap[1])
+                    return nguoiChoThue;
             }
-            Console.WriteLine("Tên đăng nhập hoặc mật khẩu không hợp lệ");
             return null;
         }
 
@@ -68,7 +71,7 @@ namespace DoAnCuoiKiOOP_v2
             double giaNuoc = Inputter.GetDouble("Nhập giá nước (VNĐ/m^3): ", "Vui lòng nhập đúng định dạng");
             PhongTro temp = new PhongTro(dienTich, noiThat, diaChi, soPhong, 0, giaPhong, ghiChu, this, null, false, giaDien, giaNuoc, null);
             dsPhongTro[slPhongTro++] = temp;
-            PhongTro.PhongTroList.Add(temp);
+            PhongTro.DsPhongTro.Add(temp);
         }
 
         public void XuatThongTinDSPhongTro()
@@ -88,7 +91,7 @@ namespace DoAnCuoiKiOOP_v2
             Menu menu = new Menu("Người Cho Thuê");
             menu.AddNewOption("Xuất thông tin cá nhân");
             menu.AddNewOption("Thêm phòng trọ");
-            menu.AddNewOption("Xuất thông tin các trọ đang sở hữu");
+            menu.AddNewOption("Xuất thông tin các phòng trọ đang sở hữu");
             menu.AddNewOption("Thoát");
 
             int choice;
@@ -131,15 +134,15 @@ namespace DoAnCuoiKiOOP_v2
             }
         }
 
-
-        /*public void Save()
+        public static void Save()
         {
-            DocGhi<NguoiChoThue>.Write(dsNguoiChoThue, "nguoichothue.csv");
-            var dsNguoiChu = DocGhi<NguoiChoThue>.Read("nguoichothue.csv");
-            foreach (var chu in dsNguoiChu)
-            {
-                chu.XuatThongTin();
-            }
-        }*/
+            XuLyCSV<NguoiChoThue>.Write(dsNguoiChoThue, "nguoichothue.csv");
+        }
+
+        public static List<NguoiChoThue> Load()
+        {
+            return XuLyCSV<NguoiChoThue>.Read("nguoichothue.csv");
+        }
+
     }
 }
