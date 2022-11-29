@@ -1,10 +1,11 @@
-﻿using System;
+﻿using FileGeneric;
+using System;
 
 namespace DoAnCuoiKiOOP_v2
 {
     public static class Program
     {
-        public static void Main(string[] agrs)
+        static void Main()
         {
             // Lưu ý:
             // Định dạng tiền nhập vào sẽ là 10000 - tương đương với 10k VNĐ
@@ -12,12 +13,13 @@ namespace DoAnCuoiKiOOP_v2
             OutputUnicode();
 
             // Công ty môi giới và người môi giới
-            CongTyMoiGioi CTMG = new CongTyMoiGioi("Nhóm 19", "OOPR230279_22_1_09", "230279");
-            NguoiMoiGioi nguoiMoiGioi = new NguoiMoiGioi("Bách Hậu Tiến An", "379434088365", "2111021133", true, new DateTime(2003, 09, 19), "Người môi giới", "HCMUTE", "0000MG", "0000", CTMG);
+            CongTyMoiGioi CTMG = new CongTyMoiGioi("vài thành viên số 19", "Lớp OOP_9", "2111019");
+            NguoiMoiGioi nguoiMG = new NguoiMoiGioi("Nguyễn Minh Bảo Bách", "2111039", "0923023332", true, new DateTime(2003, 09, 19), "Người môi giới", "Thủ Đức", "100001", "100001", CTMG);
             //////////////
 
             // Code Bách
             // Đọc file ghi vào list
+
 
             int choice;
 
@@ -118,11 +120,11 @@ namespace DoAnCuoiKiOOP_v2
                         }
                     case 3:
                         {
-                            nguoiMoiGioi.XuatThongTin();
+                            nguoiMG.XuatThongTin();
                             Console.WriteLine("Bấm phím bất kỳ để tiếp tục");
                             Console.ReadKey();
                             goto TRO_LAI_MENU_CHINH;
-                            //break;
+                            break;
                         }
                     case 4:
                         {
@@ -130,7 +132,7 @@ namespace DoAnCuoiKiOOP_v2
                             Console.WriteLine("Bấm phím bất kỳ để tiếp tục");
                             Console.ReadKey();
                             goto TRO_LAI_MENU_CHINH;
-                            //break;
+                            break;
                         }
                     case 5:
                         {
@@ -139,7 +141,7 @@ namespace DoAnCuoiKiOOP_v2
                             Console.WriteLine("Bấm phím bất kỳ để tiếp tục");
                             Console.ReadKey();
                             goto TRO_LAI_MENU_CHINH;
-                            //break;
+                            break;
                         }
                     case 6:
                         {

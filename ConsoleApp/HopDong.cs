@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FileGeneric;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,13 +8,13 @@ namespace DoAnCuoiKiOOP_v2
 {
     public class HopDong
     {
-        private string maSoHopDong = "";
         private DateTime thoiHan;
         private double tienCoc;
-        private NguoiChoThue nguoiChoThue;
         private NguoiThue nguoiThue;
+        private NguoiChoThue nguoiChoThue;
+        private string maSoHopDong = "";
         private PhongTro phongTro;
-        private static List<HopDong> dsHopDong = new List<HopDong>();
+        private static List<HopDong> hopdongList = new List<HopDong>();
 
         public HopDong(DateTime thoiHan, NguoiThue nguoiThue, NguoiChoThue nguoiChoThue, PhongTro phongTro)
         {
@@ -22,7 +23,7 @@ namespace DoAnCuoiKiOOP_v2
             this.nguoiChoThue = nguoiChoThue;
             TaoMaHopDong();
             this.phongTro = phongTro;
-            this.tienCoc = phongTro.GiaPhong * 2;
+            tienCoc = phongTro.GiaPhong() * 2;
             //Save();
         }
 
@@ -33,11 +34,11 @@ namespace DoAnCuoiKiOOP_v2
             
         }
 
-        public static bool Search(string maSoHopDong)
+        public static bool Search(string maHD)
         {
-            foreach(HopDong hd in dsHopDong)
+            foreach(HopDong hd in hopdongList)
             {
-                if(maSoHopDong == hd.maSoHopDong)
+                if(maHD == hd.maSoHopDong)
                 {
                     hd.XuatThongTin();
                     return true;
@@ -61,7 +62,7 @@ namespace DoAnCuoiKiOOP_v2
 
             // Xóa thông tin hợp đồng trong file và sửa thông tin trọ trong file
 
-            phongTro.CapNhatTinhTrang(false, 0, phongTro.GhiChu);
+            phongTro.CapNhatTinhTrang(false, 0, phongTro.GhiChu());
             Console.WriteLine("Bạn đã hủy hợp đồng thành công");
         }
 
@@ -111,7 +112,7 @@ namespace DoAnCuoiKiOOP_v2
 
         /*public void Save()
         {
-            DocGhi<HopDong>.Write(dsHopDong, "hopdong.csv");
+            DocGhi<HopDong>.Write(hopdongList, "hopdong.csv");
             var dsHopDong = DocGhi<HopDong>.Read("dong.csv");
             foreach (var hopdong in dsHopDong)
             {
