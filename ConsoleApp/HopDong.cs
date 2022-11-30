@@ -14,7 +14,6 @@ namespace DoAnCuoiKiOOP_v2
         private NguoiChoThue nguoiChoThue;
         private string maSoHopDong = "";
         private PhongTro phongTro;
-        private static List<HopDong> hopdongList = new List<HopDong>();
 
         public HopDong(DateTime thoiHan, NguoiThue nguoiThue, NguoiChoThue nguoiChoThue, PhongTro phongTro)
         {
@@ -36,7 +35,7 @@ namespace DoAnCuoiKiOOP_v2
 
         public static bool Search(string maHD)
         {
-            foreach(HopDong hd in hopdongList)
+            foreach(HopDong hd in QuanLyPhongTro.HopDongList)
             {
                 if(maHD == hd.maSoHopDong)
                 {

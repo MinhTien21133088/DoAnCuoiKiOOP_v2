@@ -10,7 +10,9 @@ namespace DoAnCuoiKiOOP_v2
     {
         private double tienNo;
         private PhongTro phongTro;
-        static List<NguoiThue> thueList = new List<NguoiThue>();
+        
+
+        public double TienNo { get => tienNo; set => tienNo = value; }
 
         public NguoiThue(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep, string diaChi, string tenDangNhap, string matKhau) : base(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau)
         {
@@ -27,7 +29,7 @@ namespace DoAnCuoiKiOOP_v2
 
         public NguoiThue(bool nhap):base(nhap)
         {
-            thueList.Add(this);
+            QuanLyPhongTro.ThueList.Add(this);
         }
 
 
@@ -35,7 +37,7 @@ namespace DoAnCuoiKiOOP_v2
         {
             string ten = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
             string mK = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
-            foreach (NguoiThue nguoi in thueList)
+            foreach (NguoiThue nguoi in QuanLyPhongTro.ThueList)
             {
                 if (ten == nguoi.tenDangNhap && mK == nguoi.matKhau)
                   return nguoi;
@@ -44,20 +46,15 @@ namespace DoAnCuoiKiOOP_v2
             return null;
         }
 
-        public double TienConNo()
-        {
-            return tienNo;
-        }
-
         public void XoaNo()
         {
-            tienNo = 0;
+            TienNo = 0;
             return;
         }
 
         public void GhiNo(double soTienNo)
         {
-            tienNo += soTienNo;
+            TienNo += soTienNo;
             return;
         }
 
@@ -73,20 +70,20 @@ namespace DoAnCuoiKiOOP_v2
 
         public void ThanhToanNo()
         {
-            Console.WriteLine("Nợ hiện tại của bạn: " + tienNo);
+            Console.WriteLine("Nợ hiện tại của bạn: " + TienNo);
             int temp = Inputter.GetInteger("Nhập số tiền muốn thanh toán: ", "Vui lòng nhập đúng định dạng");
-            if (temp >= tienNo)
+            if (temp >= TienNo)
             {
                 Console.WriteLine("Thanh toán nợ thành công!");
-                Console.WriteLine("Số tiền dư ra: " + (temp - tienNo));
-                tienNo = 0;
+                Console.WriteLine("Số tiền dư ra: " + (temp - TienNo));
+                TienNo = 0;
                 return;
             }
             else
             {
-                tienNo -= temp;
+                TienNo -= temp;
                 Console.WriteLine("Thanh toán nợ thành công!");
-                Console.WriteLine("Số tiền nợ còn lại: " + tienNo);
+                Console.WriteLine("Số tiền nợ còn lại: " + TienNo);
                 return;
             }
         }
