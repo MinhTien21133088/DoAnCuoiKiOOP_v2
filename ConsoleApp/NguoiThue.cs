@@ -27,7 +27,7 @@ namespace DoAnCuoiKiOOP_v2
 
         public NguoiThue(bool nhap):base(nhap)
         {
-            
+            thueList.Add(this);
         }
 
 
@@ -38,7 +38,7 @@ namespace DoAnCuoiKiOOP_v2
             foreach (NguoiThue nguoi in thueList)
             {
                 if (ten == nguoi.tenDangNhap && mK == nguoi.matKhau)
-                    return nguoi;
+                  return nguoi;
             }
             Console.WriteLine("Tên đăng nhập hoặc mật khẩu không hợp lệ");
             return null;

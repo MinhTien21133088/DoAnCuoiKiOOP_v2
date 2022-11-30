@@ -28,7 +28,7 @@ namespace DoAnCuoiKiOOP_v2
 
         public NguoiChoThue(bool nhap) : base(nhap)
         {
-
+            chuList.Add(this);
         }
 
         public NguoiChoThue DangNhap()

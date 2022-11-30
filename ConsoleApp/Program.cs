@@ -86,7 +86,8 @@ namespace DoAnCuoiKiOOP_v2
                                     case 1:
                                         {
                                             NguoiChoThue nguoiChoThue = new NguoiChoThue();
-                                            if (nguoiChoThue.DangNhap() != null)
+                                            nguoiChoThue = nguoiChoThue.DangNhap();
+                                            if (nguoiChoThue != null)
                                                 nguoiChoThue.HeThong();
                                             else
                                                 Console.WriteLine("Đăng nhập thất bại");
@@ -96,7 +97,8 @@ namespace DoAnCuoiKiOOP_v2
                                     case 2:
                                         {
                                             NguoiThue nguoiThue = new NguoiThue();
-                                            if (nguoiThue.DangNhap() != null)
+                                            nguoiThue = nguoiThue.DangNhap();
+                                            if (nguoiThue != null)
                                                 nguoiThue.HeThong();
                                             else
                                                 Console.WriteLine("Đăng nhập thất bại");
