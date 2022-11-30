@@ -20,6 +20,26 @@ namespace DoAnCuoiKiOOP_v2
 
         ~NguoiChoThue() { }
 
+        public static void GhiFile(List<NguoiChoThue> ChuList)
+        {           
+            string separator = ",";
+            StringBuilder output = new StringBuilder();
+            foreach (NguoiChoThue nguoi in ChuList)
+            {
+                String[] newLine = { nguoi.hoVaTen,nguoi.cccd, nguoi.sdt,nguoi.gioiTinh.ToString(),
+                    nguoi.ngaySinh.ToString(),nguoi.diaChi,nguoi.ngheNghiep,nguoi.tenDangNhap,nguoi.matKhau,nguoi.slTro.ToString()};
+                output.AppendLine(string.Join(separator, newLine));
+            }
+            try
+            {
+                File.AppendAllText("NguoiChoThue.txt", output.ToString());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Không thể ghi File. " + ex);
+            }
+        }
+
         public void XuatThongTin()
         {
             Console.WriteLine("--- Thông tin người cho thuê ---");

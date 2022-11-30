@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using LINQtoCSV;
 
 namespace DoAnCuoiKiOOP_v2
 {
@@ -25,6 +26,25 @@ namespace DoAnCuoiKiOOP_v2
         
         ~NguoiThue() { }
 
+        public static void GhiFile(List<NguoiThue> ThueList)
+        {
+            string separator = ",";
+            StringBuilder output = new StringBuilder();
+            foreach (NguoiThue nguoi in ThueList)
+            {
+                String[] newLine = { nguoi.hoVaTen,nguoi.cccd, nguoi.sdt,nguoi.gioiTinh.ToString(),
+                    nguoi.ngaySinh.ToString(),nguoi.diaChi,nguoi.ngheNghiep,nguoi.tenDangNhap,nguoi.matKhau,nguoi.tienNo.ToString(),nguoi.phongTro == null ? 0.ToString() : nguoi.phongTro.SoPhong.ToString()};
+                output.AppendLine(string.Join(separator, newLine));
+            }
+            try
+            {
+                File.AppendAllText("NguoiThue.txt", output.ToString());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Không thể ghi File. " + ex);
+            }
+        }
 
 
         public NguoiThue(bool nhap):base(nhap)
@@ -104,7 +124,7 @@ namespace DoAnCuoiKiOOP_v2
                     return;
                 foreach (PhongTro pT in dsPT)
                 {
-                    if (pT.SoPhong() == choice)
+                    if (pT.SoPhong == choice)
                     {
                         phongTro = pT;
                         break;
@@ -114,7 +134,7 @@ namespace DoAnCuoiKiOOP_v2
                 break;
             }
             Console.WriteLine("Hợp đồng của bạn có thời hạn 6 tháng kể từ ngày lập hợp đồng này");
-            Console.WriteLine("Tiền cọc trọ của bạn là: " + phongTro.GiaPhong() * 2);
+            Console.WriteLine("Tiền cọc trọ của bạn là: " + phongTro.GiaPhong * 2);
             HopDong hd = new HopDong(DateTime.Today.AddMonths(6), this, phongTro.NguoiChoThue(), phongTro);
         }
 

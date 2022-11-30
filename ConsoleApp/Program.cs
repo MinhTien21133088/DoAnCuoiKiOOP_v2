@@ -13,6 +13,7 @@ namespace DoAnCuoiKiOOP_v2
             OutputUnicode();
             QuanLyPhongTro quanLyPhongTro = new QuanLyPhongTro();
             quanLyPhongTro.HeThong();
+            quanLyPhongTro.GhiFile();
             return;
         }
 

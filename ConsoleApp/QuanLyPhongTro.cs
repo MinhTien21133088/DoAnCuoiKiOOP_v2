@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,7 +20,10 @@ namespace DoAnCuoiKiOOP_v2
 
         public QuanLyPhongTro(bool docFile)
         {
-
+            DocFileNguoiThue();
+            DocFileNguoiChoThue();
+            DocFilePhongTro();
+            DocFileHopDong();
         }
 
         public static List<NguoiThue> ThueList { get => thueList; set => thueList = value; }
@@ -167,6 +171,49 @@ namespace DoAnCuoiKiOOP_v2
         }
 
         public void DocFileNguoiThue()
+        {
+
+        }
+
+        public void DocFileNguoiChoThue()
+        {
+
+        }
+
+        public void DocFileHopDong()
+        {
+
+        }
+
+        public void DocFilePhongTro()
+        {
+
+        }
+
+        public void GhiFile()
+        {
+            NguoiThue.GhiFile(ThueList);
+            GhiFileNguoiChoThue();
+            GhiFileHopDong();
+            GhiFilePhongTro();
+        }
+
+        public void GhiFileNguoiThue()
+        {
+            
+        }
+
+        public void GhiFileNguoiChoThue()
+        {
+
+        }
+
+        public void GhiFileHopDong()
+        {
+
+        }
+
+        public void GhiFilePhongTro()
         {
 
         }

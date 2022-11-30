@@ -22,6 +22,10 @@ namespace DoAnCuoiKiOOP_v2
         private double giaNuoc; // Tien/m^3
         private string[] review = { "" };
 
+        public double GiaPhong { get => giaPhong; set => giaPhong = value; }
+        public int SoPhong { get => soPhong; set => soPhong = value; }
+        public string[] GhiChu { get => ghiChu; set => ghiChu = value; }
+
         public PhongTro(double dienTich, string[,] noiThat, string diaChi, int soPhong, int soNguoi, double giaPhong, string[] ghiChu, NguoiChoThue nguoiChoThue, NguoiThue nguoiThue, bool tinhTrang, double giaDien, double giaNuoc, string[] review)
         {
             this.dienTich = dienTich;
@@ -83,19 +87,6 @@ namespace DoAnCuoiKiOOP_v2
             Console.WriteLine("Số người ở:          " + soNguoi);
         }
 
-        public double GiaPhong()
-        {
-            return giaPhong;
-        }
-
-        public int SoPhong()
-        {
-            return soPhong;
-        }
-        public string[] GhiChu()
-        {
-            return ghiChu;
-        }
 
         public NguoiChoThue NguoiChoThue()
         {

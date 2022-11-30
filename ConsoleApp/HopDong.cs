@@ -22,8 +22,8 @@ namespace DoAnCuoiKiOOP_v2
             this.nguoiChoThue = nguoiChoThue;
             TaoMaHopDong();
             this.phongTro = phongTro;
-            tienCoc = phongTro.GiaPhong() * 2;
-            //Save();
+            tienCoc = phongTro.GiaPhong * 2;
+            QuanLyPhongTro.HopDongList.Add(this);
         }
 
         ~HopDong() { }
@@ -58,7 +58,7 @@ namespace DoAnCuoiKiOOP_v2
         {
             if (hetHan)
                 BoiThuongHopDong();
-            phongTro.CapNhatTinhTrang(false, 0, phongTro.GhiChu());
+            phongTro.CapNhatTinhTrang(false, 0, phongTro.GhiChu);
             Console.WriteLine("Bạn đã hủy hợp đồng thành công");
         }
 
@@ -104,16 +104,6 @@ namespace DoAnCuoiKiOOP_v2
                 }
             }
 
-        }
-
-        /*public void Save()
-        {
-            DocGhi<HopDong>.Write(hopdongList, "hopdong.csv");
-            var dsHopDong = DocGhi<HopDong>.Read("dong.csv");
-            foreach (var hopdong in dsHopDong)
-            {
-                hopdong.XuatThongTin();
-            }
-        }*/
+        }    
     }
 }
