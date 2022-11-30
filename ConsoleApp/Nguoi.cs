@@ -52,14 +52,13 @@ namespace DoAnCuoiKiOOP_v2
             Console.WriteLine("Nghề nghiệp: " + ngheNghiep);
         }
 
-        public static Nguoi DangKy()
+        public Nguoi (bool nhap)
         {
             Console.WriteLine("--- Nhập thông tin cơ bản ---");
-            string hoVaTen = Inputter.GetString("Họ và tên: ", "Tên không được bỏ trống");
-            string cccd = Inputter.GetStringF("Số CCCD: ", "CCCD không hợp lệ", "^[0-9]{9}$|^[0-9]{12}$");
-            string sdt = Inputter.GetStringF("Số điện thoại: ", "Số điện thoại không hợp lệ", "^0[0-9]{9}$");
-            int gioiTinh = Inputter.GetInteger("Giới tính ('1' - Nam|'0' - Nữ): ", "Không hợp lệ!", 0, 1);
-            DateTime ngaySinh;
+            hoVaTen = Inputter.GetString("Họ và tên: ", "Tên không được bỏ trống");
+            cccd = Inputter.GetStringF("Số CCCD: ", "CCCD không hợp lệ", "^[0-9]{9}$|^[0-9]{12}$");
+            sdt = Inputter.GetStringF("Số điện thoại: ", "Số điện thoại không hợp lệ", "^0[0-9]{9}$");
+            gioiTinh = Inputter.GetInteger("Giới tính ('1' - Nam|'0' - Nữ): ", "Không hợp lệ!", 0, 1) == 1 ? true : false;
             NHAP_LAI_NGAY_SINH:
             try
             {
@@ -73,11 +72,10 @@ namespace DoAnCuoiKiOOP_v2
                 Console.WriteLine("Ngày tháng năm sinh không hợp lệ.");
                 goto NHAP_LAI_NGAY_SINH;
             }
-            string ngheNghiep = Inputter.GetString("Nghề nghiệp: ", "Nghề nghiệp không được bỏ trống");
-            string diaChi = Inputter.GetString("Địa chỉ: ", "Địa chỉ không được bỏ trống");
-            string tenDangNhap = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
-            string matKhau = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
-            return new Nguoi(hoVaTen, cccd, sdt, gioiTinh == 1 ? true : false, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau);           
+            ngheNghiep = Inputter.GetString("Nghề nghiệp: ", "Nghề nghiệp không được bỏ trống");
+            diaChi = Inputter.GetString("Địa chỉ: ", "Địa chỉ không được bỏ trống");
+            tenDangNhap = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
+            matKhau = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");  
         }
 
 
@@ -85,14 +83,6 @@ namespace DoAnCuoiKiOOP_v2
         {
 
         }
-
-        //public bool TimKiem(string ten, string mK)
-        //{
-            
-        //    return true;
-        //}
-
-
 
     }
 }

@@ -17,12 +17,7 @@ namespace DoAnCuoiKiOOP_v2
             NguoiMoiGioi nguoiMG = new NguoiMoiGioi("Nguyễn Minh Bảo Bách", "2111039", "0923023332", true, new DateTime(2003, 09, 19), "Người môi giới", "Thủ Đức", "100001", "100001", CTMG);
             //////////////
 
-            // Code Bách
-            // Đọc file ghi vào list
-
-
             int choice;
-
             Menu Welcome = new("QUẢN LÝ PHÒNG TRỌ");
             Welcome.AddNewOption("Đăng ký");
             Welcome.AddNewOption("Đăng nhập");
@@ -56,12 +51,12 @@ namespace DoAnCuoiKiOOP_v2
                                 {
                                     case 1:
                                         {                                           
-                                            NguoiChoThue.DangKy();
+                                            NguoiChoThue nguoiChoThue = new NguoiChoThue(true);
                                             break;
                                         }
                                     case 2:
                                         {
-                                            NguoiThue.DangKy();
+                                            NguoiThue nguoiThue = new NguoiThue(true);
                                             break;
                                         }
                                     case 3:
@@ -90,8 +85,8 @@ namespace DoAnCuoiKiOOP_v2
                                 {
                                     case 1:
                                         {
-                                            NguoiChoThue nguoiChoThue = NguoiChoThue.DangNhap();
-                                            if (nguoiChoThue != null)
+                                            NguoiChoThue nguoiChoThue = new NguoiChoThue();
+                                            if (nguoiChoThue.DangNhap() != null)
                                                 nguoiChoThue.HeThong();
                                             else
                                                 Console.WriteLine("Đăng nhập thất bại");
@@ -100,8 +95,8 @@ namespace DoAnCuoiKiOOP_v2
                                         }
                                     case 2:
                                         {
-                                            NguoiThue nguoiThue = NguoiThue.DangNhap();
-                                            if (nguoiThue != null)
+                                            NguoiThue nguoiThue = new NguoiThue();
+                                            if (nguoiThue.DangNhap() != null)
                                                 nguoiThue.HeThong();
                                             else
                                                 Console.WriteLine("Đăng nhập thất bại");
@@ -115,8 +110,6 @@ namespace DoAnCuoiKiOOP_v2
                                         }
                                 }
                             }
-                            //goto TRO_LAI_MENU_CHINH;
-                            //break;
                         }
                     case 3:
                         {
@@ -152,10 +145,6 @@ namespace DoAnCuoiKiOOP_v2
                 }
                 break;
             }
-
-            // Code Bách
-            // Ghi file ghi vào list
-
         }
 
         public static void InputUnicode()

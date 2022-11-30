@@ -26,14 +26,12 @@ namespace DoAnCuoiKiOOP_v2
             base.XuatThongTin();
         }
 
-        public static bool DangKy()
+        public NguoiChoThue(bool nhap) : base(nhap)
         {
-            NguoiChoThue nguoiChu = (NguoiChoThue)Nguoi.DangKy();
-            chuList.Add(nguoiChu);
-            return true;
+
         }
 
-        public static NguoiChoThue DangNhap()
+        public NguoiChoThue DangNhap()
         {
             string ten = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
             string mK = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
@@ -134,14 +132,6 @@ namespace DoAnCuoiKiOOP_v2
         }
 
         
-        /*public void Save()
-        {
-            DocGhi<NguoiChoThue>.Write(chuList, "nguoichothue.csv");
-            var dsNguoiChu = DocGhi<NguoiChoThue>.Read("nguoichothue.csv");
-            foreach (var chu in dsNguoiChu)
-            {
-                chu.XuatThongTin();
-            }
-        }*/
+        
     }
 }

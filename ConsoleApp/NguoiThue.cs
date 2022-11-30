@@ -25,15 +25,13 @@ namespace DoAnCuoiKiOOP_v2
 
 
 
-        public static bool DangKy()
+        public NguoiThue(bool nhap):base(nhap)
         {
-            NguoiThue nguoiThue = (NguoiThue)Nguoi.DangKy();
-            thueList.Add(nguoiThue);
-            return true;
+            
         }
 
 
-        public static NguoiThue DangNhap()
+        public NguoiThue DangNhap()
         {
             string ten = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
             string mK = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");

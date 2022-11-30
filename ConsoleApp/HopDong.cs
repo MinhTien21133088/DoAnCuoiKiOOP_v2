@@ -55,13 +55,10 @@ namespace DoAnCuoiKiOOP_v2
                 maSoHopDong += random.Next(0, 9).ToString();
         }
 
-        public void HuyHopDong(bool over)
+        public void HuyHopDong(bool hetHan)
         {
-            if (over)
+            if (hetHan)
                 BoiThuongHopDong();
-
-            // Xóa thông tin hợp đồng trong file và sửa thông tin trọ trong file
-
             phongTro.CapNhatTinhTrang(false, 0, phongTro.GhiChu());
             Console.WriteLine("Bạn đã hủy hợp đồng thành công");
         }
