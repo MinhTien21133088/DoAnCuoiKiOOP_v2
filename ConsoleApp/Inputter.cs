@@ -10,7 +10,7 @@ namespace DoAnCuoiKiOOP_v2
 {
     public class Inputter
     {
-        // Ai ko hiểu nhớ liên lạc riêng tui qua zalo nha :v
+        // class chuyên để nhập dữ liệu
 
         private static void VuiLongNhapLai()
         {

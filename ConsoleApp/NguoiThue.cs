@@ -6,64 +6,46 @@ using LINQtoCSV;
 
 namespace DoAnCuoiKiOOP_v2
 {
-    
     public class NguoiThue : Nguoi
     {
         private double tienNo;
-        private PhongTro phongTro;
-        
+        private string idPhongTro;
 
         public double TienNo { get => tienNo; set => tienNo = value; }
+        public string IdPhongTro { get => idPhongTro; set => idPhongTro = value; }
 
-        public NguoiThue(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep, string diaChi, string tenDangNhap, string matKhau) : base(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau)
+        public NguoiThue(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep, string diaChi, string matKhau)
+                                : base(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, diaChi, matKhau)
         {
         }
-        
 
         public NguoiThue() { }
 
-       
-        
         ~NguoiThue() { }
 
-        public static void GhiFile(List<NguoiThue> ThueList)
+        public void XuatThongTin()
         {
-            string separator = ",";
-            StringBuilder output = new StringBuilder();
-            foreach (NguoiThue nguoi in ThueList)
+            Console.WriteLine("--- Thông tin người thuê ---");
+            base.XuatThongTin();
+            if(PhongTro != null)
             {
-                String[] newLine = { nguoi.hoVaTen,nguoi.cccd, nguoi.sdt,nguoi.gioiTinh.ToString(),
-                    nguoi.ngaySinh.ToString(),nguoi.diaChi,nguoi.ngheNghiep,nguoi.tenDangNhap,nguoi.matKhau,nguoi.tienNo.ToString(),nguoi.phongTro == null ? 0.ToString() : nguoi.phongTro.SoPhong.ToString()};
-                output.AppendLine(string.Join(separator, newLine));
+                Console.Write("Đã thuê phòng trọ: ");
+                Console.Write(PhongTro().SoPhong + " của "
+                    + string.Format("{0} {1}",
+                    PhongTro().NguoiChoThue().GioiTinh ? "Ông" : "Bà", PhongTro().NguoiChoThue().HoVaTen));
             }
-            try
+            else
             {
-                File.AppendAllText("NguoiThue.txt", output.ToString());
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Không thể ghi File. " + ex);
-            }
+                Console.WriteLine("Chưa thuê phòng nào");
+            }    
         }
 
-
-        public NguoiThue(bool nhap):base(nhap)
+        public PhongTro PhongTro()
         {
-            QuanLyPhongTro.ThueList.Add(this);
-        }
-
-
-        public NguoiThue DangNhap()
-        {
-            string ten = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
-            string mK = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
-            foreach (NguoiThue nguoi in QuanLyPhongTro.ThueList)
-            {
-                if (ten == nguoi.tenDangNhap && mK == nguoi.matKhau)
-                  return nguoi;
-            }
-            Console.WriteLine("Tên đăng nhập hoặc mật khẩu không hợp lệ");
-            return null;
+            PhongTro result = (PhongTro)(from PhongTro in QuanLyPhongTro.DSPhongTro
+                                         where IdPhongTro == PhongTro.IDPhongTro
+                                         select PhongTro);
+            return result;
         }
 
         public void XoaNo()
@@ -80,12 +62,12 @@ namespace DoAnCuoiKiOOP_v2
 
         public void ThanhToanTro()
         {
-            if (phongTro == null)
+            if (PhongTro() == null)
             {
                 Console.WriteLine("Bạn chưa đăng ký bất kỳ trọ nào");
                 return;
             }
-            phongTro.ThanhToan();
+            PhongTro().ThanhToan();
         }
 
         public void ThanhToanNo()
@@ -110,35 +92,30 @@ namespace DoAnCuoiKiOOP_v2
 
         public void LapHopDong()
         {
-            PhongTro[] dsPT;
-            dsPT = PhongTro.DSPhongConTrong();
-            foreach (PhongTro pT in dsPT)
+            var phongTroConTrong = from phongTro in QuanLyPhongTro.DSPhongTro where !PhongTro().TinhTrang select phongTro;
+            int i = 0;
+            List<PhongTro> temp = new List<PhongTro>();
+            foreach (var phongTro in phongTroConTrong)
             {
-                pT.XuatThongTin();
+                temp.Add(phongTro);
+                Console.WriteLine(i++);
+                phongTro.XuatThongTin();             
             }
             int choice;
             while (true)
             {
-                choice = Inputter.GetInteger("Nhập mã số phòng trọ bạn muốn thuê (Nhập 0 để thoát): ", "Vui lòng nhập đúng định dạng");
+                choice = Inputter.GetInteger("Nhập mã số phòng trọ bạn muốn thuê (Nhập 0 để thoát): ", 0, i);
                 if (choice == 0)
                     return;
-                foreach (PhongTro pT in dsPT)
-                {
-                    if (pT.SoPhong == choice)
-                    {
-                        phongTro = pT;
-                        break;
-                    }
-                }
-                Console.WriteLine("Không có phòng trọ có mã số này!");
+                IdPhongTro = temp[choice].IDPhongTro;
+                int soNguoi = Inputter.GetInteger("Nhập số người ở: ");
+                temp[choice].CapNhatNguoiThue(this, soNguoi);
                 break;
             }
             Console.WriteLine("Hợp đồng của bạn có thời hạn 6 tháng kể từ ngày lập hợp đồng này");
-            Console.WriteLine("Tiền cọc trọ của bạn là: " + phongTro.GiaPhong * 2);
-            HopDong hd = new HopDong(DateTime.Today.AddMonths(6), this, phongTro.NguoiChoThue(), phongTro);
+            Console.WriteLine("Tiền cọc trọ của bạn là: " + PhongTro().GiaPhong * 2);
+            HopDong hopDong = new HopDong(DateTime.Today.AddMonths(6), this, PhongTro().NguoiChoThue(), PhongTro());
         }
-
-
 
         public override void HeThong() // Nếu đăng nhập thành công sẽ chạy vào hàm hệ thống  
         {

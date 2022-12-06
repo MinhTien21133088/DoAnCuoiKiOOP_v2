@@ -1,5 +1,4 @@
-﻿using FileGeneric;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +7,8 @@ namespace DoAnCuoiKiOOP_v2
 {
     public class NguoiChoThue : Nguoi
     {
-        private PhongTro[] dsPhongTro = new PhongTro[100];
-        private int slTro = 0;
-        
-
-        public NguoiChoThue(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep, string diaChi, string tenDangNhap, string matKhau) : base(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, diaChi, tenDangNhap, matKhau)
+        public NguoiChoThue(string hoVaTen, string cccd, string sdt, bool gioiTinh, DateTime ngaySinh, string ngheNghiep, string diaChi, string matKhau)
+                                   : base(hoVaTen, cccd, sdt, gioiTinh, ngaySinh, ngheNghiep, diaChi, matKhau)
         {
         }
 
@@ -20,65 +16,21 @@ namespace DoAnCuoiKiOOP_v2
 
         ~NguoiChoThue() { }
 
-        public static void GhiFile(List<NguoiChoThue> ChuList)
-        {           
-            string separator = ",";
-            StringBuilder output = new StringBuilder();
-            foreach (NguoiChoThue nguoi in ChuList)
-            {
-                String[] newLine = { nguoi.hoVaTen,nguoi.cccd, nguoi.sdt,nguoi.gioiTinh.ToString(),
-                    nguoi.ngaySinh.ToString(),nguoi.diaChi,nguoi.ngheNghiep,nguoi.tenDangNhap,nguoi.matKhau,nguoi.slTro.ToString()};
-                output.AppendLine(string.Join(separator, newLine));
-            }
-            try
-            {
-                File.AppendAllText("NguoiChoThue.txt", output.ToString());
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Không thể ghi File. " + ex);
-            }
-        }
-
         public void XuatThongTin()
         {
             Console.WriteLine("--- Thông tin người cho thuê ---");
             base.XuatThongTin();
         }
 
-        public NguoiChoThue(bool nhap) : base(nhap)
-        {
-            QuanLyPhongTro.ChuList.Add(this);
-        }
-
-        public NguoiChoThue DangNhap()
-        {
-            string ten = Inputter.GetString("Tên đăng nhập: ", "Tên đăng nhập không được bỏ trống");
-            string mK = Inputter.GetString("Mật khẩu: ", "Mật khẩu không được bỏ trống");
-            foreach (NguoiChoThue nguoi in QuanLyPhongTro.ChuList)
-            {
-                if (ten == nguoi.tenDangNhap && mK == nguoi.matKhau)
-                    return nguoi;
-            }
-            Console.WriteLine("Tên đăng nhập hoặc mật khẩu không hợp lệ");
-            return null;
-        }
-
-        public void ThemPhongTro()
-        {
-            dsPhongTro[slTro++] = new PhongTro(true);
-        }
-
         public void XuatThongTinDSPhongTro()
         {
-            foreach(PhongTro pt in dsPhongTro)
+            var result = from phongTro in QuanLyPhongTro.DSPhongTro
+                         where phongTro.CCCDNguoiChoThue == CCCD
+                         select phongTro;
+            foreach (PhongTro phongTro in result)
             {
-                if (pt != null)
-                {
-                    pt.XuatThongTin();
-                    Console.WriteLine("------------------------");
-                }
-            }    
+                phongTro.XuatThongTin();
+            }
         }
 
         public override void HeThong()
@@ -107,7 +59,7 @@ namespace DoAnCuoiKiOOP_v2
                         }
                     case 2:
                         {
-                            ThemPhongTro();
+                            QuanLyPhongTro.ThemPhongTro(this);
                             Console.WriteLine("Nhấn phím bất kỳ để tiếp tục");
                             Console.ReadKey();
                             break;
@@ -129,7 +81,7 @@ namespace DoAnCuoiKiOOP_v2
             }
         }
 
-        
-        
+
+
     }
 }

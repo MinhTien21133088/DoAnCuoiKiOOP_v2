@@ -4,6 +4,8 @@ namespace DoAnCuoiKiOOP_v2
 {
     public class Menu
     {
+        // class chuyên về Menu
+
         private string title = "";
         private List<string> optionList = new List<string>();
         private int size = 0;

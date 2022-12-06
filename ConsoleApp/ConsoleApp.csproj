@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="30.0.1" />
+    <PackageReference Include="FileHelpers" Version="3.5.2" />
     <PackageReference Include="LinqToCsv" Version="1.5.0" />
   </ItemGroup>
 
